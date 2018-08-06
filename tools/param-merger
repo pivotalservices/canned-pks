@@ -1,0 +1,128 @@
+#!/usr/bin/env python
+
+# param-merger
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+__author__ = 'Sabha Parameswaran'
+
+import argparse
+import yaml
+import re, sys
+
+input_param_file = None
+target_param_file = None
+merged_param_file = None
+merge_prefix = ''
+
+
+def init():
+	parser = argparse.ArgumentParser()
+	parser.add_argument('target_param_file', type=str,
+		help='path to the target param yml file')
+	parser.add_argument('input_param_file', type=str,
+		help='path to the input param yml file')
+	parser.add_argument('merged_param_file', type=str,
+		help='path to the merged params yml output file')
+	#parser.add_argument('merge_prefix', type=str, default='',
+	#	help='prefix to add to input params to match against target param')
+	return parser.parse_args()
+
+def main():
+    global input_param_file, target_param_file, merged_param_file, merge_prefix
+
+    args = init()
+    input_param_file = args.input_param_file
+    target_param_file = args.target_param_file
+    merged_param_file = args.merged_param_file
+    #merge_prefix = args.merge_prefix if args.merge_prefix else ''
+
+    merge()
+
+def merge():
+
+    try:
+        input_param_config = read_config(input_param_file)
+        #print 'Got input params: {}'.format(input_param_config)
+
+        data = None
+        with open(target_param_file, 'r') as target_file:
+            data = target_file.read()
+
+
+        for key in input_param_config:
+            string_to_replace = '((%s%s))' % (merge_prefix, key)
+            value = input_param_config.get(key)
+            if value is not None:
+                data = data.replace( string_to_replace, value)
+
+        # Special handling of the start and end of the external ip pool
+        external_pool_range = input_param_config['nsx_t_external_ip_pool_range']
+        external_pool_range_ips =  external_pool_range.split('-')
+
+        external_pool_start = '((%snsx_t_external_ip_pool_start))' % (merge_prefix)
+        external_pool_end = '((%ssnsx_t_external_ip_pool_end))' % (merge_prefix)
+
+        data.replace( external_pool_start, external_pool_range_ips[0] )
+        data.replace( external_pool_end, external_pool_range_ips[1] )
+
+        check_missing_params(data)
+
+        outputfile = open(merged_param_file, 'w')
+        outputfile.write(str(data))
+    except Exception as e1:
+        print >> sys.stderr, 'Problem with file handling: {}'.format(e1)
+        sys.exit(1)
+
+def check_missing_params(data):
+
+    for param in re.findall(r'(\(\(.*\)\))', data):
+        print 'Missing input for Parameter: ' + param
+
+    for param in re.findall(r'({{.*}})', data):
+        print 'Missing input for Parameter: ' + param
+
+def read_config(input_file):
+	try:
+		with open(input_file) as config_file:
+			yamlcontent = yaml.safe_load(config_file)
+			return yamlcontent
+	except IOError as e:
+		print >> sys.stderr, 'Not a yaml config file.'
+		sys.exit(1)
+
+def read_as_string(input_file):
+	try:
+		with open(input_file) as config_file:
+			yamlcontent = yaml.safe_load(config_file)
+			return yamlcontent
+	except IOError as e:
+		print >> sys.stderr, 'Not a yaml config file.'
+		sys.exit(1)
+
+def write_config(content, destination):
+	try:
+		with open(destination, 'w') as output_file:
+			yaml.dump(content, output_file,  Dumper=NoAliasDumper)
+
+	except IOError as e:
+		print('Error : {}'.format(e))
+		print >> sys.stderr, 'Problem with writing out a yaml file.'
+		sys.exit(1)
+
+class NoAliasDumper(yaml.Dumper):
+    def ignore_aliases(self, data):
+        return True
+
+if __name__ == '__main__':
+	main()

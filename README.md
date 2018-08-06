@@ -6,7 +6,7 @@ The install is meant to be run in an offline mode by first creating an OVA that 
 ## Associated Repos
 * [Boostrap OVA]()
 * [NSX-T v2.1 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.1)
-* (NSX-T v2.1 Ansible scripts Repo](https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1)
+* [NSX-T v2.1 Ansible scripts Repo](https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1)
 * [PKS v1.1.* Install pipeline Repo](https://github.com/sparameswaran/nsx-t-ci-pipeline/tree/nsxt-2.1)
 * [BOM-Mgmt Repo](https://github.com/pivotalservices/bom-mgmt)
 
@@ -34,8 +34,8 @@ Additionally, the OVA needs to be up with minio running on it before proceeding 
 Once docker has been installed, add the current user as part of docker group and see if it can run a test docker image.
 ```
 ## Replace <USER> with user id
-$ sudo usermod -a -G docker <USER>
-$ sudo docker run hello-world
+sudo usermod -a -G docker <USER>
+sudo docker run hello-world
 ```
 * minio client (mc): minio client tool to initialize minio bucket and validate the upload. Installing minio client:
 ```
@@ -59,6 +59,8 @@ mc mb bomstore/canned-pks
 * fly: To register and kickoff pipelines against Concourse
 Download latest linux binary version from [here](https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64)
 
+Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a current working directory. Please edit the version of BOM tool to pull down the latest version:
+
 ## Download and Upload of BOM Bits into S3
 * Downloading BOM bits
 Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
@@ -70,8 +72,9 @@ export MINIO_ACCESS_KEY="<minio_access_id>"
 export MINIO_SECRET="<minio_secret_access_key>"
 
 # Sample: /home/ubuntu/test-bits is a folder to save the downloaded bits
-./bom-mgmt download-bits --bits "/home/ubuntu/test-bits" --bom "bom.yml"
+./bom-mgmt download-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml_file>
 ```
+Download script file available under [tools](./tools/bom-downloader.sh).
 
 * Uploading BOM bits
 
@@ -83,8 +86,9 @@ export MINIO_SECRET="<minio_secret_access_key>"
 
 # Sample: /home/ubuntu/test-bits as the folder to refer to the downloaded bits
 # Replace 'canned-pks' with different minio bucket name as needed
-./bom-mgmt upload-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml> --bucket "canned-pks"
+./bom-mgmt upload-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml_file> --bucket "canned-pks"
 ```
+Upload script file available under [tools](./tools/bom-uploader.sh).
 
 ## Pipeline Templates
 

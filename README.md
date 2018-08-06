@@ -1,14 +1,14 @@
 # canned-pks
 Complete automated install of NSX-T and PKS in a can.
 
-The install is meant to be run in an offline mode by first creating an OVA that can be used to run Concourse and Minio while all the necessary bits that are required (either by the pipeline or the install) gets persisted into a S3 Blobstore (minio) and then used by the pipeline during the install to complete NSX-T and PKS deployments.
+The install is meant to be run in an offline mode by first creating an OVA that can be used to run [Concourse](https://concourse-ci.org) and [Minio](https://github.com/minio/) while all the necessary bits that are required (either by the pipeline or the install) gets persisted into a S3 Blobstore (minio) and then used by the pipeline during the install to complete NSX-T and PKS deployments.
 
 ## Associated Repos
-* (Boostrap OVA)[]
-* (NSX-T v2.1 Install pipeline Repo)[https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.1]
-* (NSX-T v2.1 Ansible scripts Repo)[https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1]
-* (PKS v1.1.* Install pipeline Repo)[https://github.com/sparameswaran/nsx-t-ci-pipeline/tree/nsxt-2.1]
-* (BOM-Mgmt Repo)[https://github.com/pivotalservices/bom-mgmt]
+* [Boostrap OVA]()
+* [NSX-T v2.1 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.1)
+* (NSX-T v2.1 Ansible scripts Repo](https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1)
+* [PKS v1.1.* Install pipeline Repo](https://github.com/sparameswaran/nsx-t-ci-pipeline/tree/nsxt-2.1)
+* [BOM-Mgmt Repo](https://github.com/pivotalservices/bom-mgmt)
 
 ## Kickoff OVA
 
@@ -29,7 +29,7 @@ The Jumpbox or client vm where the BOM is downloaded and uploaded needs access t
 
 Additionally, the OVA needs to be up with minio running on it before proceeding with connecting to it and uploading bits.
 
-* Docker: BOM-mgmt tool requires docker cli for downloading and saving the images as Tar-balls. Steps for (installing docker here)[docs/install-docker.md].
+* Docker: BOM-mgmt tool requires docker cli for downloading and saving the images as Tar-balls. Steps for [installing docker here](docs/install-docker.md).
 
 Once docker has been installed, add the current user as part of docker group and see if it can run a test docker image.
 ```
@@ -54,14 +54,14 @@ mc mb bomstore/canned-pks
 ```
 * bom-mgmt tool: utility to download and upload Bill of Materials (BOM) into Minio Blobstore. The tool can be downloaded from https://github.com/pivotalservices/bom-mgmt/releases
 
-* python: To run the (`param-merger`)[./tools/param-merger] merger tool for merging user filled params with rest of the install parameters.
+* python: To run the [`param-merger`](./tools/param-merger) merger tool for merging user filled params with rest of the install parameters.
 
 * fly: To register and kickoff pipelines against Concourse
-Download latest linux binary version from (here)[https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64]
+Download latest linux binary version from [here](https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64)
 
 ## Download and Upload of BOM Bits into S3
 * Downloading BOM bits
-Verify the contents of (bom.yml)[] are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
+Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
 Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied and the tools is being run in an environment with online access.
 
 ```
@@ -83,7 +83,7 @@ export MINIO_SECRET="<minio_secret_access_key>"
 
 # Sample: /home/ubuntu/test-bits as the folder to refer to the downloaded bits
 # Replace 'canned-pks' with different minio bucket name as needed
-./bom-mgmt upload-bits --bits "/home/ubuntu/test-bits" --bom "bom.yml" --bucket "canned-pks"
+./bom-mgmt upload-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml> --bucket "canned-pks"
 ```
 
 ## Pipeline Templates
@@ -93,13 +93,13 @@ The pipeline templates for installing the NSX-T v2.1 and PKS v1.1.1
 * (offline-nsx-t-install-pipeline)[./pipelines/offline-nsx-t-install-v2.1.yml]
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, ova, other binaries etc.) for install of NSX-T v2.1
 
-* (offline-install-pks-pipeline)[./pipelines/offline-install-pks-pipeline-v2.1.yml]
+* [offline-install-pks-pipeline](./pipelines/offline-install-pks-pipeline-v2.1.yml)
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, tiles, stemcells, ova, other binaries etc.) for install of PKS v1.1.1
 
 ## Params
 Parameters that need to be filled by the user and merged with pre-filled remaining parameters for installing NSX or PKS
 
-* (user-inputs-for-canned-pks.yml)[./params/user-inputs-for-canned-pks.yml]
+* [user-inputs-for-canned-pks.yml](./params/user-inputs-for-canned-pks.yml)
 User will fill in the parameters relating to the vSphere connectivity, network configs, NSX-T desired topology and creds along with other data around final end configurations for NSX or PKS (like domain names, pks cli user creds etc.)
 
 The minio offline bucket params should be updated to point to the correct minio bucket hosting the saved BOM bits:
@@ -113,13 +113,13 @@ final_s3_secret_access_key: <minio_secret_access_key>
 offline_run_id: “”
 ```
 
-* (nsx-t-for-canned-pks-params.yml)[./params/nsx-t-for-canned-pks-params.yml]
+* [nsx-t-for-canned-pks-params.yml](./params/nsx-t-for-canned-pks-params.yml)
 Pre-filled parameters for NSX-T install that would be merged with user provided parameters to build the effective parameters for the NSX-T install.
 
-* (params-for-canned-pks.yml)[./params/params-for-canned-pks.yml]
+* [params-for-canned-pks.yml](./params/params-for-canned-pks.yml)
 Pre-filled parameters for PKS Tile install that would be merged with user provided parameters to build the effective parameters for the PKS install.
 
-* (params-for-canned-pks-harbor.yml)[./params/params-for-canned-pks-harbor.yml]
+* [params-for-canned-pks-harbor.yml](./params/params-for-canned-pks-harbor.yml)
 Pre-filled parameters for Harbor Tile install that would be merged with user provided parameters to build the effective parameters for the Harbor install.
 
 ### Merging the params

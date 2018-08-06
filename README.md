@@ -16,13 +16,16 @@ OVA image that contains the Concourse and minio pre-installed to run the offline
 
 ## Bill of Materials (BOM)
 
-Bill of Materials that are required to be downloaded from online sources and then uploaded into S3 blobstore (minio) to install NSX-T and PKS in offline mode. Includes following materials required during run of the pipeline:
+Bill of Materials are comprised of online sources that need to be downloaded and then uploaded into S3 blobstore (minio) to install NSX-T and PKS in offline mode. Includes:
 
 * Github repo tarballs
 * Docker images used by pipelines
 * Ova images (for NSX-T, Ops Mgr)
 * Tiles (PKS, Harbor including their supported stemcells)
 * Other binaries (ovftool)
+
+<div><img src="images/hdyrating-bom.png" width="300"/>BOM workflow</div>
+The steps involved in download from online and upload to offline store is discussed after the client machine setup.
 
 ## Client Machine Setup
 The Jumpbox or client vm where the BOM is downloaded and uploaded needs access to online resources and also should have Docker and other utilities installed.
@@ -131,6 +134,8 @@ Pre-filled parameters for Harbor Tile install that would be merged with user pro
 ### Merging the params
 The effective parameters should be generated using the `param-merger` tool (available under tools folder) to merge the user filled parameters with rest of pre-filled parameters. Ensure `python` is installed on the machine to run the param-merger tool.
 
+<div><img src="images/merging-params.png" width="300"/>Merging Params</div>
+
 * For generating the effective params for NSX-T Install for use with the offline nsx-t install pipeline:
 ```
 # nsx-t-for-canned-pks-params.yml has pre-filled parameters for fixed config, with some parameterized elements that need to be filled by user
@@ -163,10 +168,13 @@ Register the generated effective param file with the offline NSX-T install pipel
 fly -t concourse-canned-pks sp -p offline-install-nsx-t -c pipelines/offline-nsx-t-install-v2.1.yml -l effective-nsx-t-install-params.yml
 fly -t concourse-canned-pks unpause-pipeline -p  offline-install-nsx-t
 ```
-  Go to the `full-install` Job tab and hit `+` icon to kick off the install
+  Go to the `full-install` Job tab and hit `+` icon against `install-nsx-t` to kick off the install
 
   Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
-* Installing PKS (with Harbor)
+
+  <div><img src="images/nsx-t-install.png" width="300"/>NSX-T Install</div>
+
+* Installing PKS
 Register the generated effective PKS & Harbor param file with the offline PKS install pipeline template to kick off the PKS install in offline mode:
 
 ```
@@ -177,6 +185,12 @@ fly -t concourse-canned-pks sp -p offline-install-pks \
 
 fly -t concourse-canned-pks unpause-pipeline -p  offline-install-pks
 ```
-  Go to the `full-pks-install` Job group tab and hit `+` icon to kick off the install
+  Go to the `full-pks-install` Job group tab and hit `+` icon against `deploy-opsman` install to kick off the install
 
   Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
+
+  <div><img src="images/pks-install.png" width="300"/>PKS Install</div>
+
+* Installing Harbor
+Select the `harbor-install-standalone` tab at top and hit `+` icon against upload-harbor to kick off the Harbor Tile install in offline mode:
+  <div><img src="images/harbor-install.png" width="300"/>PKS Install</div>

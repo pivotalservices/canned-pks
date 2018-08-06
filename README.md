@@ -24,7 +24,7 @@ Bill of Materials are comprised of online sources that need to be downloaded and
 * Tiles (PKS, Harbor including their supported stemcells)
 * Other binaries (ovftool)
 
-<div><img src="images/hdyrating-bom.png" width="300"/>BOM workflow</div>
+<div><img src="images/hydrating-bom.png" width="400"/></div>
 The steps involved in download from online and upload to offline store is discussed after the client machine setup.
 
 ## Client Machine Setup
@@ -134,7 +134,7 @@ Pre-filled parameters for Harbor Tile install that would be merged with user pro
 ### Merging the params
 The effective parameters should be generated using the `param-merger` tool (available under tools folder) to merge the user filled parameters with rest of pre-filled parameters. Ensure `python` is installed on the machine to run the param-merger tool.
 
-<div><img src="images/merging-params.png" width="300"/>Merging Params</div>
+<div><img src="images/merging-params.png" width="400"/></div>
 
 * For generating the effective params for NSX-T Install for use with the offline nsx-t install pipeline:
 ```
@@ -172,7 +172,7 @@ fly -t concourse-canned-pks unpause-pipeline -p  offline-install-nsx-t
 
   Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
 
-  <div><img src="images/nsx-t-install.png" width="300"/>NSX-T Install</div>
+  <div><img src="images/nsx-t-install.png" width="500"/></div>
 
 * Installing PKS
 Register the generated effective PKS & Harbor param file with the offline PKS install pipeline template to kick off the PKS install in offline mode:
@@ -189,8 +189,9 @@ fly -t concourse-canned-pks unpause-pipeline -p  offline-install-pks
 
   Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
 
-  <div><img src="images/pks-install.png" width="300"/>PKS Install</div>
+  <div><img src="images/pks-install.png" width="500"/></div>
 
 * Installing Harbor
-Select the `harbor-install-standalone` tab at top and hit `+` icon against upload-harbor to kick off the Harbor Tile install in offline mode:
-  <div><img src="images/harbor-install.png" width="300"/>PKS Install</div>
+Select the `harbor-install-standalone` tab at top and hit `+` icon against upload-harbor to kick off the Harbor Tile install in offline mode.
+
+  <div><img src="images/harbor-install.png" width="500"/></div>

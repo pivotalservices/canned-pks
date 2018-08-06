@@ -31,27 +31,27 @@ Additionally, the OVA needs to be up with minio running on it before proceeding 
 
 * Docker: BOM-mgmt tool requires docker cli for downloading and saving the images as Tar-balls. Steps for [installing docker here](docs/install-docker.md).
 
-Once docker has been installed, add the current user as part of docker group and see if it can run a test docker image.
-```
-## Replace <USER> with user id
-sudo usermod -a -G docker <USER>
-sudo docker run hello-world
-```
+  Once docker has been installed, add the current user as part of docker group and see if it can run a test docker image.
+  ```
+  ## Replace <USER> with user id
+  sudo usermod -a -G docker <USER>
+  sudo docker run hello-world
+  ```
 * minio client (mc): minio client tool to initialize minio bucket and validate the upload. Installing minio client:
-```
-wget https://dl.minio.io/client/mc/release/linux-amd64/mc
-chmod +x mc
-```
-Connect to the minio blobstore
-```
-mc config host add bomstore http://<MINIO_HOST>:<MINIO_PORT> <minio_access_id> <minio_secret_access_key>
-```
-Create the `canned-pks` bucket
-```
-# Create the bucket ‘canned-pks’ either using browser access or using command line
-mc mb bomstore/canned-pks
+  ```
+  wget https://dl.minio.io/client/mc/release/linux-amd64/mc
+  chmod +x mc
+  ```
+  Connect to the minio blobstore
+  ```
+  mc config host add bomstore http://<MINIO_HOST>:<MINIO_PORT> <minio_access_id> <minio_secret_access_key>
+  ```
+  Create the `canned-pks` bucket
+  ```
+  # Create the bucket ‘canned-pks’ either using browser access or using command line
+  mc mb bomstore/canned-pks
 
-```
+  ```
 * bom-mgmt tool: utility to download and upload Bill of Materials (BOM) into Minio Blobstore. The tool can be downloaded from https://github.com/pivotalservices/bom-mgmt/releases
 
 * python: To run the [`param-merger`](./tools/param-merger) merger tool for merging user filled params with rest of the install parameters.
@@ -62,7 +62,9 @@ Download latest linux binary version from [here](https://github.com/concourse/co
 Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a current working directory. Please edit the version of BOM tool to pull down the latest version:
 
 ## Download and Upload of BOM Bits into S3
+
 * Downloading BOM bits
+
 Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
 Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied and the tools is being run in an environment with online access.
 
@@ -74,7 +76,7 @@ export MINIO_SECRET="<minio_secret_access_key>"
 # Sample: /home/ubuntu/test-bits is a folder to save the downloaded bits
 ./bom-mgmt download-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml_file>
 ```
-Download script file available under [tools](./tools/bom-downloader.sh).
+  Download script file available under [tools](./tools/bom-downloader.sh).
 
 * Uploading BOM bits
 
@@ -88,20 +90,20 @@ export MINIO_SECRET="<minio_secret_access_key>"
 # Replace 'canned-pks' with different minio bucket name as needed
 ./bom-mgmt upload-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml_file> --bucket "canned-pks"
 ```
-Upload script file available under [tools](./tools/bom-uploader.sh).
+  Upload script file available under [tools](./tools/bom-uploader.sh).
 
 ## Pipeline Templates
 
 The pipeline templates for installing the NSX-T v2.1 and PKS v1.1.1
 
-* (offline-nsx-t-install-pipeline)[./pipelines/offline-nsx-t-install-v2.1.yml]
+* [offline-nsx-t-install-pipeline](./pipelines/offline-nsx-t-install-v2.1.yml)
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, ova, other binaries etc.) for install of NSX-T v2.1
 
 * [offline-install-pks-pipeline](./pipelines/offline-install-pks-pipeline-v2.1.yml)
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, tiles, stemcells, ova, other binaries etc.) for install of PKS v1.1.1
 
 ## Params
-Parameters that need to be filled by the user and merged with pre-filled remaining parameters for installing NSX or PKS
+Parameters that need to be filled by the user and merged with other pre-filled  parameters for installing NSX or PKS.
 
 * [user-inputs-for-canned-pks.yml](./params/user-inputs-for-canned-pks.yml)
 User will fill in the parameters relating to the vSphere connectivity, network configs, NSX-T desired topology and creds along with other data around final end configurations for NSX or PKS (like domain names, pks cli user creds etc.)
@@ -161,10 +163,9 @@ Register the generated effective param file with the offline NSX-T install pipel
 fly -t concourse-canned-pks sp -p offline-install-nsx-t -c pipelines/offline-nsx-t-install-v2.1.yml -l effective-nsx-t-install-params.yml
 fly -t concourse-canned-pks unpause-pipeline -p  offline-install-nsx-t
 ```
-Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
+  Go to the `full-install` Job tab and hit `+` icon to kick off the install
 
-Go to the `full-install` Job tab and hit `+` icon to kick off the install
-
+  Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
 * Installing PKS (with Harbor)
 Register the generated effective PKS & Harbor param file with the offline PKS install pipeline template to kick off the PKS install in offline mode:
 
@@ -176,6 +177,6 @@ fly -t concourse-canned-pks sp -p offline-install-pks \
 
 fly -t concourse-canned-pks unpause-pipeline -p  offline-install-pks
 ```
-Go to the `full-pks-install` Job group tab and hit `+` icon to kick off the install
+  Go to the `full-pks-install` Job group tab and hit `+` icon to kick off the install
 
-Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
+  Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.

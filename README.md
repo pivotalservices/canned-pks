@@ -2,6 +2,7 @@
 Complete automated install of NSX-T and PKS in a can.
 
 The install is meant to be run in an offline mode by first creating an OVA that can be used to run [Concourse](https://concourse-ci.org) and [Minio](https://github.com/minio/) while all the necessary bits that are required (either by the pipeline or the install) gets persisted into a S3 Blobstore (minio) and then used by the pipeline during the install to complete NSX-T and PKS deployments.
+<div><img src="images/canned-pks-workflow.png" width="500"/></div>
 
 ## Associated Repos
 * [Boostrap OVA]()
@@ -16,7 +17,9 @@ OVA image that contains the Concourse and minio pre-installed to run the offline
 
 ## Bill of Materials (BOM)
 
-Bill of Materials are comprised of online sources that need to be downloaded and then uploaded into S3 blobstore (minio) to install NSX-T and PKS in offline mode. Includes:
+Installing the NSX-T or PKS requires access to couple of resources that are available in online mode and not in offline mode; these include github repos, docker images used by concourse tasks, Pivotal Tiles available from Pivnet, Stemcells, OVA images (either for Pivotal Ops Manager, or NSX-T, other file resources etc.). These dependent artifacts together form the Bill of Materials (BOM).
+
+The Bill of Materials that need to be downloaded in online mode and then need to uploaded into S3 blobstore (minio) for the install pipelines of NSX-T and PKS in function in offline mode. BOM would include:
 
 * Github repo tarballs
 * Docker images used by pipelines
@@ -173,6 +176,8 @@ fly -t concourse-canned-pks unpause-pipeline -p  offline-install-nsx-t
   Note: Ensure no errors or missing parameters are reported during the registration of the pipeline.
 
   <div><img src="images/nsx-t-install.png" width="500"/></div>
+
+Note: In case of any issues or request to delete the install, use the wipe-env job to wipe away the NSX-T Mgmt plane and also to remove the NSX-T vibs from the ESXi hosts. The wipe does require a manual rolling restart of the ESXi hosts for clean removal of the vibs at end of the wipe job.
 
 * Installing PKS
 Register the generated effective PKS & Harbor param file with the offline PKS install pipeline template to kick off the PKS install in offline mode:

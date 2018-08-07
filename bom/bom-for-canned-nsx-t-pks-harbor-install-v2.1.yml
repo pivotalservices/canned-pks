@@ -78,17 +78,19 @@ bits:
 # Pivnet Tiles and OVA
 - name: pivotal-container-service-1.1.2.tgz
   contentType: application/gzip
+  resourceType: pivnet-tile
   productSlug: pivotal-container-service
   version: 1.1.2
   globs: ["*.pivotal"]
 - name: harbor-container-registry-1.5.2.tgz
   contentType: application/gzip
+  resourceType: pivnet-tile
   productSlug: harbor-container-registry
   version: 1.5.2
   globs: ["*.pivotal"]
 - name: pcf-ops-manager-2.2.1.ova
   contentType: application/vmware
+  resourceType: pivnet-non-tile
   productSlug: ops-manager
   version: 2.2.1
   globs: ["*vsphere*"]
-  resourceType: pivnet-non-tile

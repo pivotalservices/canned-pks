@@ -19,7 +19,7 @@ OVA image that contains the Concourse and minio pre-installed to run the offline
 
 Installing the NSX-T or PKS requires access to couple of resources that are available in online mode and not in offline mode; these include github repos, docker images used by concourse tasks, Pivotal Tiles available from Pivnet, Stemcells, OVA images (either for Pivotal Ops Manager, or NSX-T, other file resources etc.). These dependent artifacts together form the Bill of Materials (BOM).
 
-The Bill of Materials that need to be downloaded in online mode and then need to uploaded into S3 blobstore (minio) for the install pipelines of NSX-T and PKS in function in offline mode. BOM would include:
+The Bill of Materials need to be downloaded in online mode and then need to uploaded into S3 blobstore (minio) for the install pipelines of NSX-T and PKS to function in offline mode. BOM would include:
 
 * Github repo tarballs
 * Docker images used by pipelines

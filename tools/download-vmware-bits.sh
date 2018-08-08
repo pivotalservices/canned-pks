@@ -33,6 +33,16 @@ do
   echo ""
 done
 
+# For now download ovftool differently, till we figure out what product family to download from using the docker approach
+named_ovftool_bit=$(cat ${BOM_DIR}/${DEFAULT_BOM_FILE} \
+                        | grep "ovftool" \
+                        | grep "name" \
+                        | awk -F 'name: ' '{print $2}' )
+
+curl -L  -o VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle \
+      "https://www.dropbox.com/s/n5pepfatetp55q2/VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle?dl=1"
+mv VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle ${CANNED_PKS_DIR}/${DOWNLOAD_BITS_FOLDER}/resources/file/${named_ovftool_bit}
+
 echo "Finished downloading vmware related bits from my.vmware.com!!"
 echo "Skipped downloading ovftool!!"
 echo ""

@@ -14,3 +14,27 @@ export DOWNLOAD_BITS_FOLDER="download-bits"
 export MINIO_HOST="<MINIO_HOST>:<MINIO_PORT>"
 export MINIO_ACCESS_KEY="<minio_access_id>"
 export MINIO_SECRET="<minio_secret_access_key>"
+
+# EDIT ME
+export MINIO_BUCKET="canned-pks"
+
+# EDIT if necessary
+export DEFAULT_BOM_FILE=bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml
+
+which docker
+docker_status=$?
+if [ "$docker_status" != "0" ]; then
+  echo "Docker not installed or not available for current user!!, Exiting"
+fi
+
+which unzip
+unzip_status=$?
+if [ "$unzip_status" != "0" ]; then
+  echo "Unzip not installed!!, Exiting"
+fi
+
+which python
+python_status=$?
+if [ "$python_status" != "0" ]; then
+  echo "Python not installed!!, Exiting"
+fi

@@ -65,38 +65,23 @@ Additionally, the OVA needs to be up with minio running on it before proceeding 
 * fly: To register and kickoff pipelines against Concourse
 Download latest linux binary version from [here](https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64)
 
-Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a current working directory. Please edit the version of BOM tool to pull down the latest version:
+Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a `tools` directory and check other pre-reqs. Change to the `tools` folder. Edit the `setup.sh` script and then run the `download-tools.sh` from within the `tools` directory.
+
+
+* unzip: to peek into the Pivotal Tiles and identify the stemcell version used by the tile.
 
 ## Download and Upload of BOM Bits into S3
 
 * Downloading BOM bits
 
 Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
-Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied and the tools is being run in an environment with online access.
+Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools\setup.sh` and the tools is being run in an environment with online access.
 
-```
-export MINIO_HOST="<MINIO_HOST>:<MINIO_PORT>"
-export MINIO_ACCESS_KEY="<minio_access_id>"
-export MINIO_SECRET="<minio_secret_access_key>"
-
-# Sample: /home/ubuntu/test-bits is a folder to save the downloaded bits
-./bom-mgmt download-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml_file>
-```
-  Download script file available under [tools](./tools/bom-downloader.sh).
+Change to the `tools` folder. Edit the `setup.sh` script and then run the `bom-downloader.sh`. This would start the download of the various github, docker hub and pivotal resources declared in the bom file followed by downloading of my.vmware.com resources using a special docker image.
 
 * Uploading BOM bits
 
-Upload the BOM bits into the minio s3 blobstore:
-```
-export MINIO_HOST="<MINIO_HOST>:<MINIO_PORT>"
-export MINIO_ACCESS_KEY="<minio_access_id>"
-export MINIO_SECRET="<minio_secret_access_key>"
-
-# Sample: /home/ubuntu/test-bits as the folder to refer to the downloaded bits
-# Replace 'canned-pks' with different minio bucket name as needed
-./bom-mgmt upload-bits --bits "/home/ubuntu/test-bits" --bom <bom_yml_file> --bucket "canned-pks"
-```
-  Upload script file available under [tools](./tools/bom-uploader.sh).
+Upload the BOM bits into the minio s3 blobstore by change to the `tools` folder, edit the `setup.sh` script and then run the `bom-uploader.sh`.
 
 ## Pipeline Templates
 

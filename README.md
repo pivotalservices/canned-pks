@@ -65,10 +65,10 @@ Additionally, the OVA needs to be up with minio running on it before proceeding 
 * fly: To register and kickoff pipelines against Concourse
 Download latest linux binary version from [here](https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64)
 
-Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a `tools` directory and check other pre-reqs. Change to the `tools` folder. Edit the `setup.sh` script and then run the `download-tools.sh` from within the `tools` directory.
-
-
 * unzip: to peek into the Pivotal Tiles and identify the stemcell version used by the tile.
+
+
+Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a `tools` directory and check other pre-reqs. Change to the `tools` folder. Edit the `setup.sh` script and then run the `download-tools.sh` from within the `tools` directory.
 
 ## Download and Upload of BOM Bits into S3
 

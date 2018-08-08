@@ -1,6 +1,6 @@
 # Access tokens for Pivnet & my.vmware.com
 pivnet_token: EDIT_ME
-myvmware_user: EDIT_ME@vmware.com
+myvmware_user: EDIT_ME
 myvmware_password: EDIT_ME
 iaas: vsphere
 
@@ -30,7 +30,7 @@ bits:
 - name: pcf-pipelines-utils-tarball.tgz
   contentType: application/gzip
   resourceType: git
-  branch: nsxt-2.1
+  branch: pks1.1
   gitRepo: https://github.com/pivotalservices/concourse-pipeline-samples
 
 # Docker Image tarballs
@@ -62,15 +62,17 @@ bits:
   productSlug: pivotal-container-service
   version: 1.1.2
   globs: ["*.pivotal"]
+  resourceType: pivnet-tile
 - name: harbor-container-registry-1.5.2.tgz
   contentType: application/gzip
   productSlug: harbor-container-registry
   version: 1.5.2
   globs: ["*.pivotal"]
-- name: pcf-ops-manager-2.2.1.ova
+  resourceType: pivnet-tile
+- name: pcf-ops-manager-2.1.6.ova
   contentType: application/vmware
   productSlug: ops-manager
-  version: 2.2.1
+  version: 2.1.6
   globs: ["*vsphere*"]
   resourceType: pivnet-non-tile
 
@@ -82,16 +84,19 @@ bits:
 - name: nsx-mgr-ova-2-1.ova
   contentType: application/vmware
   resourceType: vmware
-  url: http://my.vmware.com#nsx-unified-appliance-2.1.0.0.0.7395503.ova
+  productSlug: nsx-unified-appliance-2.1.0.0.0.7395503.ova
+  group: "VMware Pivotal Container Service"
 - name: nsx-ctrl-ova-2-1.ova
   contentType: application/vmware
   resourceType: vmware
-  url: http://my.vmware.com#nsx-controller-2.1.0.0.0.7395493.ova
+  productSlug: nsx-controller-2.1.0.0.0.7395493.ova
+  group: "VMware Pivotal Container Service"
 - name: nsx-edge-ova-2-1.ova
   contentType: application/vmware
   resourceType: vmware
-  url: http://my.vmware.com#nsx-edge-2.1.0.0.0.7395502.ova
-- name: ovftool-4.2.0-5965791-lin.x86_64.bundle
-  contentType: application/octet-stream
-  resourceType: vmware
-  url: http://my.vmware.com#VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
+  productSlug: nsx-edge-2.1.0.0.0.7395502.ova
+  group: "VMware Pivotal Container Service"
+# - name: ovftool-4.2.0-5965791-lin.x86_64.bundle
+#   contentType: application/octet-stream
+#   resourceType: vmware
+#   url: http://my.vmware.com#VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle

@@ -93,7 +93,7 @@ bits:
   contentType: application/vmware
   resourceType: vmware
   productSlug: nsx-edge-2.1.0.0.0.7395502.ova
-- name: VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
+- name: ovftool-4.2.0-5965791-lin.x86_64.bundle
   contentType: application/octet-stream
   resourceType: vmware
   productSlug: VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle

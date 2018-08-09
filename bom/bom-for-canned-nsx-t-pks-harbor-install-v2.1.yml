@@ -85,18 +85,15 @@ bits:
   contentType: application/vmware
   resourceType: vmware
   productSlug: nsx-unified-appliance-2.1.0.0.0.7395503.ova
-  group: "VMware Pivotal Container Service"
 - name: nsx-ctrl-ova-2-1.ova
   contentType: application/vmware
   resourceType: vmware
   productSlug: nsx-controller-2.1.0.0.0.7395493.ova
-  group: "VMware Pivotal Container Service"
 - name: nsx-edge-ova-2-1.ova
   contentType: application/vmware
   resourceType: vmware
   productSlug: nsx-edge-2.1.0.0.0.7395502.ova
-  group: "VMware Pivotal Container Service"
-# - name: ovftool-4.2.0-5965791-lin.x86_64.bundle
-#   contentType: application/octet-stream
-#   resourceType: vmware
-#   url: http://my.vmware.com#VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
+- name: VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
+  contentType: application/octet-stream
+  resourceType: vmware
+  productSlug: VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle

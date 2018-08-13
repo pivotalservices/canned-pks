@@ -28,16 +28,16 @@ merge_prefix = ''
 
 
 def init():
-	parser = argparse.ArgumentParser()
-	parser.add_argument('target_param_file', type=str,
-		help='path to the target param yml file that has templated values')
-	parser.add_argument('input_param_file', type=str,
-		help='path to the user filled input param yml file')
-	parser.add_argument('merged_param_file', type=str,
-		help='path to the merged params yml output file')
-	#parser.add_argument('merge_prefix', type=str, default='',
-	#	help='prefix to add to input params to match against target param')
-	return parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('target_param_file', type=str,
+        help='path to the target param yml file that has templated values')
+    parser.add_argument('input_param_file', type=str,
+        help='path to the user filled input param yml file')
+    parser.add_argument('merged_param_file', type=str,
+        help='path to the merged params yml output file')
+    #parser.add_argument('merge_prefix', type=str, default='',
+    #   help='prefix to add to input params to match against target param')
+    return parser.parse_args()
 
 def main():
     global input_param_file, target_param_file, merged_param_file, merge_prefix
@@ -61,30 +61,70 @@ def merge():
             data = target_file.read()
 
 
+        # Special handling of the azs - do it first before proceeding with others
+        data = handle_azs(data, input_param_config)
+
         for key in input_param_config:
             string_to_replace = '((%s%s))' % (merge_prefix, key)
             value = input_param_config.get(key)
             if value is not None:
-				if type(value) != str and type(value) != unicode:
-					data = data.replace( string_to_replace, str(value).encode('utf-8'))
-				else:
-					data = data.replace( string_to_replace, value)
+                if type(value) != str and type(value) != unicode:
+                    data = data.replace( string_to_replace, str(value).encode('utf-8'))
+                else:
+                    data = data.replace( string_to_replace, value)
 
         # Special handling of the start and end of the external ip pool
-        external_pool_start = '((%snsx_t_external_ip_pool_start))' % (merge_prefix)
-        external_pool_end = '((%ssnsx_t_external_ip_pool_end))' % (merge_prefix)
+        data = handle_external_ip_pool(data, input_param_config)
 
-        data.replace( external_pool_start, input_param_config.get('nsx_t_external_ip_pool_start') )
-        data.replace( external_pool_end, input_param_config.get('nsx_t_external_ip_pool_end') )
+        # Special handling of the clusters based on azs
+        data = handle_clusters(data, input_param_config)
 
         check_missing_params(data)
 
         outputfile = open(merged_param_file, 'w')
         outputfile.write(str(data))
     except Exception as e1:
-		traceback.print_exc(e1)
-		print >> sys.stderr, 'Problem with file handling: {}'.format(e1)
-		sys.exit(1)
+        traceback.print_exc(e1)
+        print >> sys.stderr, 'Problem with file handling: {}'.format(e1)
+        sys.exit(1)
+
+def handle_external_ip_pool(data_payload, input_param_config):
+    external_pool_start = '((%snsx_t_external_ip_pool_start))' % (merge_prefix)
+    external_pool_end = '((%ssnsx_t_external_ip_pool_end))' % (merge_prefix)
+
+    data_payload.replace( external_pool_start, input_param_config.get('nsx_t_external_ip_pool_start') )
+    data_payload.replace( external_pool_end, input_param_config.get('nsx_t_external_ip_pool_end') )
+
+    return data_payload
+
+def handle_azs(data_payload, input_param_config):
+    use_single_az = input_param_config.get('use_single_az')
+
+    # use_single_az: true      # Would use only az_1, ignore rest of the azs
+    # az_1_cluster: Cluster1
+    # # Ignore the rest of the azs field if only using single az
+    # az_2_cluster: Cluster2
+    # az_3_cluster: Cluster3
+
+    if not use_single_az or use_single_az == 'false' or str(use_single_az) == 'False':
+        return data_payload
+
+    # Delete all references to az_2.* or az_3.*
+    data_payload = re.sub('az_[23].*', '', data_payload)
+    data_payload = re.sub(',az2,az3', '', data_payload)
+
+    return data_payload
+
+def handle_clusters(data_payload, input_param_config):
+    use_single_az = input_param_config.get('use_single_az')
+    if not use_single_az or use_single_az == 'false' or str(use_single_az) == 'False':
+        return data_payload
+
+    cluster_for_az1 = input_param_config.get('az_1_cluster')
+    pattern_to_replace = '%s,.*' % cluster_for_az1
+    data_payload = re.sub(pattern_to_replace, cluster_for_az1, data_payload)
+
+    return data_payload
 
 def check_missing_params(data):
 
@@ -95,36 +135,36 @@ def check_missing_params(data):
         print 'Missing input for Parameter: ' + param
 
 def read_config(input_file):
-	try:
-		with open(input_file) as config_file:
-			yamlcontent = yaml.safe_load(config_file)
-			return yamlcontent
-	except IOError as e:
-		print >> sys.stderr, 'Not a yaml config file.'
-		sys.exit(1)
+    try:
+        with open(input_file) as config_file:
+            yamlcontent = yaml.safe_load(config_file)
+            return yamlcontent
+    except IOError as e:
+        print >> sys.stderr, 'Not a yaml config file.'
+        sys.exit(1)
 
 def read_as_string(input_file):
-	try:
-		with open(input_file) as config_file:
-			yamlcontent = yaml.safe_load(config_file)
-			return yamlcontent
-	except IOError as e:
-		print >> sys.stderr, 'Not a yaml config file.'
-		sys.exit(1)
+    try:
+        with open(input_file) as config_file:
+            yamlcontent = yaml.safe_load(config_file)
+            return yamlcontent
+    except IOError as e:
+        print >> sys.stderr, 'Not a yaml config file.'
+        sys.exit(1)
 
 def write_config(content, destination):
-	try:
-		with open(destination, 'w') as output_file:
-			yaml.dump(content, output_file,  Dumper=NoAliasDumper)
+    try:
+        with open(destination, 'w') as output_file:
+            yaml.dump(content, output_file,  Dumper=NoAliasDumper)
 
-	except IOError as e:
-		print('Error : {}'.format(e))
-		print >> sys.stderr, 'Problem with writing out a yaml file.'
-		sys.exit(1)
+    except IOError as e:
+        print('Error : {}'.format(e))
+        print >> sys.stderr, 'Problem with writing out a yaml file.'
+        sys.exit(1)
 
 class NoAliasDumper(yaml.Dumper):
     def ignore_aliases(self, data):
         return True
 
 if __name__ == '__main__':
-	main()
+    main()

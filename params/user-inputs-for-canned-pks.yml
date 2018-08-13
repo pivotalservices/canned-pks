@@ -15,7 +15,7 @@ vcenter_host: vcenter.mycompany.com
 vcenter_usr: administrator@vsphere.local
 vcenter_pwd: vcenterAdminPassword
 vcenter_datacenter: Datacenter
-vcenter_cluster: Cluster
+vcenter_cluster: Cluster1
 vcenter_datastore: a-xio
 vcenter_rp: ""
 mgmt_portgroup: 'VM Network'
@@ -78,7 +78,9 @@ om_resource_pool: pks-rp1
 bosh_vm_storage: vsan
 
 # AZs and Clusters
+use_single_az: true      # Would use only az_1, ignore rest of the azs
 az_1_cluster: Cluster1
+# Ignore the rest of the azs field if only using single az
 az_2_cluster: Cluster2
 az_3_cluster: Cluster3
 

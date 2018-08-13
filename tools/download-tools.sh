@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Edit bom-mgmt version to pull the latest release bits
-export BOM_MGMT_VERSION=1.0.1
+export BOM_MGMT_VERSION=1.0.3
 
 export TOOLS_DIR=$(dirname $BASH_SOURCE)
 source $TOOLS_DIR/setup.sh

@@ -12,10 +12,5 @@ fi
 # Sample: ${CANNED_PKS_DIR}/test-bits is a folder to save the downloaded bits
 $TOOLS_DIR/bom-mgmt download-bits --bits "${CANNED_PKS_DIR}/${DOWNLOAD_BITS_FOLDER}" \
                          --bom  "${BOM_DIR}/${DEFAULT_BOM_FILE}"
-echo "Finished downloading Github Repos, Docker images, Pivnet related dependencies!!"
-echo ""
-
-$TOOLS_DIR/download-vmware-bits.sh
-
 echo "Finished downloading bill of materials"
 echo ""

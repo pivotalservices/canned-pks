@@ -264,14 +264,14 @@ nsx_t_nat_rules_spec: |
   - t0_router: DefaultT0Router
     nat_type: snat
     source_network: 172.23.1.0/24      # PKS Infra network cidr
-    translated_network: ((nsx_t_nat_rules_snat_ip))       # SNAT External Address for PKS networks
+    translated_network: ((nsx_t_nat_rules_snat_translated_ip_for_all))       # SNAT External Address for PKS networks
     rule_priority: 8001                  # Lower priority
 
   # Sample entry for PKS PKS-Clusters network - outbound/egress
   - t0_router: DefaultT0Router
     nat_type: snat
     source_network: 172.23.2.0/24      # PKS Clusters network cidr
-    translated_network: ((nsx_t_nat_rules_snat_ip))       # SNAT External Address for PKS networks
+    translated_network: ((nsx_t_nat_rules_snat_translated_ip_for_all))       # SNAT External Address for PKS networks
     rule_priority: 8001                  # Lower priority
 
   # Sample entry for allowing inbound to PKS Ops manager - ingress

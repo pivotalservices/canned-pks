@@ -18,7 +18,7 @@ harbor_config_api_nats_params: &id001 {HARBOR_APP_DOMAIN: ((harbor_tile_app_doma
   HARBOR_APP_DOMAIN_IP: ((harbor_tile_app_domain_ip)), NSX_API_MANAGER: ((nsx_address)),
   NSX_API_PASSWORD: ((nsx_password)), NSX_API_USER: ((nsx_username)), OPSMAN_DOMAIN_OR_IP_ADDRESS: ((opsman_domain_or_ip_address)),
   OPSMAN_PASSWORD: ((opsman_admin_password)), OPSMAN_USERNAME: ((opsman_admin_username)),
-  PKS_T0_ROUTER_NAME: ((pks_tile_t0_router_name))}
+  PKS_T0_ROUTER_NAME: ((pks_tile_t0_router_name)), HABBOR_TILE_PROPERTIES: ((harbor_properties)) }
 jobs:
 - name: deploy-opsman
   plan:

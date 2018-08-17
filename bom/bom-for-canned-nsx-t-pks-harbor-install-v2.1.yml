@@ -46,7 +46,7 @@ bits:
   contentType: application/gzip
   resourceType: docker
   imageName: czero/cflinuxfs2
-- name: czero-rootfs-latest-docker
+- name: czero-rootfs-latest-docker.tgz
   contentType: application/gzip
   resourceType: docker
   imageName: czero/rootfs

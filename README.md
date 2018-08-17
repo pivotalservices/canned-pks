@@ -30,6 +30,27 @@ The Bill of Materials need to be downloaded in online mode and then need to uplo
 <div><img src="images/hydrating-bom.png" width="400"/></div>
 The steps involved in download from online and upload to offline store is discussed after the client machine setup.
 
+## Structure of BOM
+
+The bom file (under bom folder) specifies the Bill of Materials required for execution of the Concourse pipeline in an offline mode including the github repos, nsx or other install bits, Pivnet Tiles + stemcells, docker images used by the pipeline etc.
+
+Also, the tokens required to interact with my.vmware.com or network.pivotal (pivnet) to download bits are specified in the bom file.
+
+The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and also the bucket to be used to store the offline resources. Based on the resource type specified in BOM file, the resource would be saved and uploaded into the specific paths in the offline bucket by the `bom-mgmt` tool.
+
+| Resource Type |resourceType value | Additional fields | Content Type | Path saved under Blobstore | Notes
+| ---------------- |------------------ | ----------------- | -------------|
+| Github | `git` | name, branch, gitRepo | `application/gzip`| <offline-bucket>/resources/git/<name-of-resource> | tgz of root of the github         
+| Docker | `docker` | name, imageName | `application/gzip`| <offline-bucket>/resources/docker/<name-of-resource> | tgz of exported docker image with some additions[1]
+| Pivnet Tile | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-tile/<name-of-resource> |tgz of the Tile + associated stemcell  
+| Pivnet Ops Mgr Ova | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-non-tile/<name-of-resource> |Just ova file  
+| VMware Download bit | `vmware` | name, productSlug | `application/vmware`| <offline-bucket>/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com
+
+[1]: The docker image should have a metadata.json file at root (same level as rootfs folder) containing following content (added by bom-mgmt tool automatically):
+```
+{ "user": "root", "env": [ "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "LANG=C", "HOME=/root" ] }
+```
+
 ## Client Machine Setup
 The Jumpbox or client vm where the BOM is downloaded and uploaded needs access to online resources and also should have Docker and other utilities installed.
 
@@ -58,7 +79,7 @@ Additionally, the OVA needs to be up with minio running on it before proceeding 
   mc mb bomstore/canned-pks
 
   ```
-* bom-mgmt tool: utility to download and upload Bill of Materials (BOM) into Minio Blobstore. The tool can be downloaded from https://github.com/pivotalservices/bom-mgmt/releases
+* `bom-mgmt` tool: utility to download and upload Bill of Materials (BOM) into Minio Blobstore. The tool can be downloaded from https://github.com/pivotalservices/bom-mgmt/releases
 
 * python: To run the [`param-merger`](./tools/param-merger) merger tool for merging user filled params with rest of the install parameters.
 
@@ -68,7 +89,8 @@ Download latest linux binary version from [here](https://github.com/concourse/co
 * unzip: to peek into the Pivotal Tiles and identify the stemcell version used by the tile.
 
 
-Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a `tools` directory and check other pre-reqs. Change to the `tools` folder. Edit the `setup.sh` script and then run the `download-tools.sh` from within the `tools` directory.
+Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc and fly versions into a `tools` directory and check other pre-reqs. Change to the `tools` folder. Edit the `setup.sh` script and then run the
+`download-tools.sh` from within the `tools` directory.
 
 ## Download and Upload of BOM Bits into S3
 

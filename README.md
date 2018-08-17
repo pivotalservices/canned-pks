@@ -38,13 +38,15 @@ Also, the tokens required to interact with my.vmware.com or network.pivotal (piv
 
 The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and also the bucket to be used to store the offline resources. Based on the resource type specified in BOM file, the resource would be saved and uploaded into the specific paths in the offline bucket by the `bom-mgmt` tool.
 
-| Resource Type |resourceType value | Additional fields | Content Type | Path saved under Blobstore | Notes
-| ---------------- |------------------ | ----------------- | -------------|
-| Github | `git` | name, branch, gitRepo | `application/gzip`| <offline-bucket>/resources/git/<name-of-resource> | tgz of root of the github         
-| Docker | `docker` | name, imageName | `application/gzip`| <offline-bucket>/resources/docker/<name-of-resource> | tgz of exported docker image with some additions[1]
-| Pivnet Tile | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-tile/<name-of-resource> |tgz of the Tile + associated stemcell  
-| Pivnet Ops Mgr Ova | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-non-tile/<name-of-resource> |Just ova file  
-| VMware Download bit | `vmware` | name, productSlug | `application/vmware`| <offline-bucket>/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com
+
+| Resource Type |resourceType value | Additional fields | Content Type | Path saved under Blobstore | Notes |
+| ------------- |------------------ | ----------------- | -------------| ---------------------------| ----- |
+| `Github` | `git` | name, branch, gitRepo | `application/gzip`| <offline-bucket>/resources/git/<name-of-resource> | tgz of root of the github |        
+| `Docker` | `docker` | name, imageName | `application/gzip`| <offline-bucket>/resources/docker/<name-of-resource> | tgz of exported docker image with some additions[1] |
+| `Pivnet Tile` | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-tile/<name-of-resource> |tgz of the Tile + associated stemcell   |
+| `Pivnet Ops Mgr Ova` | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-non-tile/<name-of-resource> |Just ova file   |
+| `VMware bit` | `vmware` | name, productSlug | `application/vmware`| <offline-bucket>/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com |
+
 
 [1]: The docker image should have a metadata.json file at root (same level as rootfs folder) containing following content (added by bom-mgmt tool automatically):
 ```

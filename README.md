@@ -45,13 +45,37 @@ The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and
 | `Docker` | `docker` | name, imageName | `application/gzip`| `offline-bucket`/resources/docker/<name-of-resource> | tgz of exported docker image with some additions[1] |
 | `Pivnet Tile` | `productSlug` | name, version, globs | `application/gzip`| `offline-bucket`/resources/pivnet-tile/<name-of-resource> |tgz of the Tile + associated stemcell   |
 | `Pivnet Ops Mgr Ova` | `productSlug` | name, version, globs | `application/gzip`| `offline-bucket`/resources/pivnet-non-tile/<name-of-resource> |Just ova file   |
-| `VMware bit` | `vmware` | name, productSlug | `application/vmware`| `offline-bucket`/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com |
+| `VMware bit` | `vmware` | name, productSlug | `application/vmware`| `offline-bucket`/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com[2] |
 
 
-[1]: The docker image should have a metadata.json file at root (same level as rootfs folder) containing following content (added by bom-mgmt tool automatically):
+[1]: The exported docker image should have a metadata.json file at root (same level as rootfs folder) containing following content (added by bom-mgmt tool automatically):
 ```
 { "user": "root", "env": [ "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "LANG=C", "HOME=/root" ] }
 ```
+[2]: To manually download vmware bits (requires login)
+[NSX-T 2.1 bits] (https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-210&productId=673)
+[OVFTool 4.2 bits](https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=OVFTOOL420#)
+
+### Sample Step for a given entry in bom file:
+All the steps described below are handled automatically by the `bom-downloader.sh` and `bom-uploader.sh` scripts using the `bom-mgmt` tool.
+* For github resource, download the copy of the code from github (using the correct branch specified), ensure there are no temporary folders, all code starts with root of the repo, all submodules are complete and create a tarball with the name specified and save it into the offline bucket under resources/git folder with same name as specified. These are done automatically by the bom-mgmt tool.
+```
+- name: nsx-t-gen-pipeline-tarball.tgz
+  contentType: application/gzip
+  resourceType: git
+  branch: nsxt-2.1
+  gitRepo: https://github.com/sparameswaran/nsx-t-gen
+```
+* For Docker image, use docker to download the bits from docker hub, run it and export the bits as a tarball. Then add the additional metadata.json file with content specified earlier and add it to the root of the tarball image. Save the final tarball into the offline bucket under resources/docker folder with same name as specified in bom file.
+```
+- name: nsxedgegen-nsx-t-gen-worker-v2.1-docker.tgz
+  contentType: application/gzip
+  resourceType: docker
+  imageName: nsxedgegen/nsx-t-gen-worker
+```
+* For Pivnet tiles, create a tarball of the tile + stemcell specified (that matches the stemcell version specified in the tile metadata and iaas) and save it under the resources/pivnet-tile folder of the offline bucket.
+* For Pivnet non-Tiles (like Ops Mgr Ova), download the OVA version specified in the bom (and matching the IAAS) and save it under the resources/pivnet-non-tile folder of the offline bucket.
+* For VMware bits (like NSX-T or Ovftool), download the bits with version specified in the bom (and matching the type) and save it under the resources/vwmare folder of the offline bucket.
 
 ## Client Machine Setup
 The Jumpbox or client vm where the BOM is downloaded and uploaded needs access to online resources and also should have Docker and other utilities installed.

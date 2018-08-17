@@ -81,6 +81,8 @@ bits:
 # Dont change the names or structure
 # The end file names and paths should match offline pipeline template
 # Example: like resources/file/nsx-mgr-ova-2-1.ova
+# Download NSX-T 2.1 bits from
+# https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-210&productId=673
 - name: nsx-mgr-ova-2-1.ova
   contentType: application/vmware
   resourceType: vmware
@@ -93,6 +95,7 @@ bits:
   contentType: application/vmware
   resourceType: vmware
   productSlug: nsx-edge-2.1.0.0.0.7395502.ova
+# Download from https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=OVFTOOL420#
 - name: ovftool-4.2.0-5965791-lin.x86_64.bundle
   contentType: application/octet-stream
   resourceType: vmware

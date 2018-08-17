@@ -41,11 +41,11 @@ The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and
 
 | Resource Type |resourceType value | Additional fields | Content Type | Path saved under Blobstore | Notes |
 | ------------- |------------------ | ----------------- | -------------| ---------------------------| ----- |
-| `Github` | `git` | name, branch, gitRepo | `application/gzip`| <offline-bucket>/resources/git/<name-of-resource> | tgz of root of the github |        
-| `Docker` | `docker` | name, imageName | `application/gzip`| <offline-bucket>/resources/docker/<name-of-resource> | tgz of exported docker image with some additions[1] |
-| `Pivnet Tile` | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-tile/<name-of-resource> |tgz of the Tile + associated stemcell   |
-| `Pivnet Ops Mgr Ova` | `productSlug` | name, version, globs | `application/gzip`| <offline-bucket>/resources/pivnet-non-tile/<name-of-resource> |Just ova file   |
-| `VMware bit` | `vmware` | name, productSlug | `application/vmware`| <offline-bucket>/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com |
+| `Github` | `git` | name, branch, gitRepo | `application/gzip`| `offline-bucket`/resources/git/<name-of-resource> | tgz of root of the github |        
+| `Docker` | `docker` | name, imageName | `application/gzip`| `offline-bucket`/resources/docker/<name-of-resource> | tgz of exported docker image with some additions[1] |
+| `Pivnet Tile` | `productSlug` | name, version, globs | `application/gzip`| `offline-bucket`/resources/pivnet-tile/<name-of-resource> |tgz of the Tile + associated stemcell   |
+| `Pivnet Ops Mgr Ova` | `productSlug` | name, version, globs | `application/gzip`| `offline-bucket`/resources/pivnet-non-tile/<name-of-resource> |Just ova file   |
+| `VMware bit` | `vmware` | name, productSlug | `application/vmware`| `offline-bucket`/resources/vmware/<name-of-resource> | Downloadable bit from my.vmware.com |
 
 
 [1]: The docker image should have a metadata.json file at root (same level as rootfs folder) containing following content (added by bom-mgmt tool automatically):

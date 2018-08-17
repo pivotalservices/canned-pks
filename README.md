@@ -53,7 +53,9 @@ The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and
 { "user": "root", "env": [ "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "LANG=C", "HOME=/root" ] }
 ```
 [2]: To manually download vmware bits (requires login)
-[NSX-T 2.1 bits] (https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-210&productId=673)
+
+[NSX-T 2.1 bits](https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-210&productId=673)
+
 [OVFTool 4.2 bits](https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=OVFTOOL420#)
 
 ### Sample Step for a given entry in bom file:

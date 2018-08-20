@@ -63,6 +63,7 @@ compute_manager_configs: |
       overlay_profile_vlan: ((nsx_t_overlay_profile_vlan)) # VLAN ID for the TEP/Overlay network
       uplink_vmnics: ((nsx_t_esxi_vmnics))
 
+nsx_t_controllers_config:
 
 # Using a separate vCenter to add Edges
 # Edge Specific vCenter settings
@@ -248,7 +249,7 @@ nsx_t_external_ip_pool_spec: |
   external_ip_pools:
   - name: snat-vip-pool-for-pks
     cidr: ((nsx_t_external_ip_pool_cidr)) # Should be a 0/24 or some valid cidr, matching the external exposed uplink
-    gateway: ((defaultgateway))
+    gateway: ((nsx_t_external_ip_pool_gateway))
     start: ((nsx_t_external_ip_pool_start)) # Should not include gateway
     end: ((nsx_t_external_ip_pool_end))  # Should not include gateway
     nameserver: ((dnsserver))

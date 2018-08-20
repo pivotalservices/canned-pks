@@ -53,7 +53,7 @@ jobs:
       EDGE_NETMASK: ((edge_netmask)), EDGE_NTPSERVERS: ((edge_ntpservers)), EDGE_VCENTER_CLUSTER: ((edge_vcenter_cluster)),
       EDGE_VCENTER_DATACENTER: ((edge_vcenter_datacenter)), EDGE_VCENTER_DATASTORE: ((edge_vcenter_datastore)),
       EDGE_VCENTER_HOST: ((edge_vcenter_host)), EDGE_VCENTER_PWD: ((edge_vcenter_pwd)),
-      EDGE_VCENTER_USR: ((edge_vcenter_usr)), ENABLE_ANSIBLE_DEBUG: ((enable_ansible_debug)),
+      EDGE_VCENTER_USR: ((edge_vcenter_usr)), EDGE_VCENTER_RP: ((edge_vcenter_rp)), ENABLE_ANSIBLE_DEBUG: ((enable_ansible_debug)),
       ESXI_HOSTS_CONFIG: ((esxi_hosts_config)), ESXI_HOSTS_ROOT_PWD: ((esxi_hosts_root_pwd)),
       MGMT_PORTGROUP: ((mgmt_portgroup)), NETMASK: ((netmask)), NSX_T_CONTAINER_IP_BLOCK: null,
       NSX_T_CONTAINER_IP_BLOCK_SPEC: ((nsx_t_container_ip_block_spec)), NSX_T_CONTROLLERS_CONFIG: ((nsx_t_controllers_config)),

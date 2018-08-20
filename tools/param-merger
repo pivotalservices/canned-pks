@@ -63,13 +63,15 @@ def merge():
 
         # Special handling of the azs - do it first before proceeding with replacing the tokens
         data = handle_azs(data, input_param_config)
-        print 'Data after handle azs' 
-        print data
 
         for key in input_param_config:
             string_to_replace = '((%s%s))' % (merge_prefix, key)
             value = input_param_config.get(key)
+            if value == '':
+                value = '""'
+
             if value is not None:
+                # data = data.replace( string_to_replace, value)
                 if type(value) != str and type(value) != unicode:
                     data = data.replace( string_to_replace, str(value).encode('utf-8'))
                 else:
@@ -111,12 +113,12 @@ def handle_azs(data_payload, input_param_config):
     if not use_single_az or use_single_az == 'false' or str(use_single_az) == 'False':
         return data_payload
 
-    # Mark the az_2 and az_3 as empty 
-    data_payload = data_payload.replace('((az_2_cluster))', '').replace('((az_3_cluster))', '') 
-    data_payload = data_payload.replace('az_2_name: az2', 'az_2_name:').replace('az_3_name: az3', 'az_3_name:') 
-    data_payload = re.sub(',az2,az3', '', data_payload) 
-    
-    print 'Data payload\n' + data_payload
+    # Mark the az_2 and az_3 as empty
+    data_payload = data_payload.replace('((az_2_cluster))', '').replace('((az_3_cluster))', '')
+    data_payload = data_payload.replace('az_2_name: az2', 'az_2_name:').replace('az_3_name: az3', 'az_3_name:')
+    data_payload = re.sub(',az2,az3', '', data_payload)
+
+    #print 'Data payload\n' + data_payload
 
     return data_payload
 

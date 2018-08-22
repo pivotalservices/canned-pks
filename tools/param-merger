@@ -118,6 +118,13 @@ def handle_azs(data_payload, input_param_config):
     data_payload = data_payload.replace('az_2_name: az2', 'az_2_name:').replace('az_3_name: az3', 'az_3_name:')
     data_payload = re.sub(',az2,az3', '', data_payload)
 
+    # for Harbor, we need to squelch other azs
+    # - name: az1                             # EDIT ME
+    # - name: az2                             # EDIT ME
+    # - name: az3                             # EDIT ME
+    az_pattern_to_replace = ' - name: az[23] .*'
+    data_payload = re.sub(az_pattern_to_replace, '', data_payload)
+
     #print 'Data payload\n' + data_payload
 
     return data_payload

@@ -33,7 +33,7 @@ harbor_properties: |
   #
   # If auto-generation of certs is desired, leave this parameter un-commented
   #   and update the array of domain names to be used for cert generation.
-  #   e.g. ["harbortest.haas-167.pez.pivotal.io"].
+  #   e.g. ["harbor.corp.local.io"].
   #   Leave parameters cert_pem and private_key_pem with empty values in this case.
   #
   # Otherwise, either comment out or delete this parameter line and

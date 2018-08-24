@@ -1,0 +1,687 @@
+{
+  "OVFTOOL430": {
+    "version": "4.3.0",
+    "productId": "742",
+    "productDate": "2018-04-17",
+    "productType": "Drivers & Tools",
+    "productName": "VMware Open Virtualization Format Tool 4.3.0",
+    "files": {
+      "VMware-ovftool-4.3.0-7948156-win.i386.msi": {
+        "name": "VMware OVF Tool for Windows 32-bit",
+        "fileName": "VMware-ovftool-4.3.0-7948156-win.i386.msi",
+        "fileDate": "2018-04-17",
+        "fileSize": "19.86 MB",
+        "fileType": "msi",
+        "buildNum": "7948156",
+        "descr": "Download VMware OVF Tool installer for Windows 32-bit ",
+        "md5sum": "1e327dc54f2d34478196fe4b6c14b4b5",
+        "sha1sum": "ef89dac62197ead265a274b94d76579cb5cc8418",
+        "sha256sum": "87069a24fa743000c66fbf5a009d51cdd4dc1063e22ecbeaf172534569219029",
+        "download": {
+          "downloadGroupCode": "OVFTOOL430",
+          "downloadFileId": "1e327dc54f2d34478196fe4b6c14b4b5",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "6f58199ede3ddb4ed874bbfda27c8fbd",
+          "tagId": "9610",
+          "productId": "742",
+          "uuId": "9861fe27-44bc-4665-a3ac-3638f9489cf8"
+        }
+      },
+      "VMware-ovftool-4.3.0-7948156-win.x86_64.msi": {
+        "name": "VMware OVF Tool for Windows 64-bit",
+        "fileName": "VMware-ovftool-4.3.0-7948156-win.x86_64.msi",
+        "fileDate": "2018-04-17",
+        "fileSize": "23.80 MB",
+        "fileType": "msi",
+        "buildNum": "7948156",
+        "descr": "Download VMware OVF Tool installer for Windows 64-bit ",
+        "md5sum": "f4253e998c2d4e8bf68a31479e7242e4",
+        "sha1sum": "2394a84f2c954d97277c2b727008d7f637127735",
+        "sha256sum": "ea249f533c2b2d14edf730ef60f7d46fff3c9590d34734cb88fb19a6795a5d7b",
+        "download": {
+          "downloadGroupCode": "OVFTOOL430",
+          "downloadFileId": "f4253e998c2d4e8bf68a31479e7242e4",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "2223ffa36d83411e8fd23b63386445bb",
+          "tagId": "9610",
+          "productId": "742",
+          "uuId": "6e785a5f-6024-4464-89f2-cbe7b007739a"
+        }
+      },
+      "VMware-ovftool-4.3.0-7948156-lin.i386.bundle": {
+        "name": "VMware OVF Tool for Linux 32-bit",
+        "fileName": "VMware-ovftool-4.3.0-7948156-lin.i386.bundle",
+        "fileDate": "2018-04-17",
+        "fileSize": "33.42 MB",
+        "fileType": "bundle",
+        "buildNum": "7948156",
+        "descr": "Download VMware OVF Tool installer for Linux 32-bit ",
+        "md5sum": "a04be178d3fe0cb0d1ec7591b2f608cb",
+        "sha1sum": "8998d293fcfb98a413d4d3a24eb4349b1174804d",
+        "sha256sum": "a5d661b5b845532e4374f0c1c563ea62687cc86b8118b5614a6005fa2756832f",
+        "download": {
+          "downloadGroupCode": "OVFTOOL430",
+          "downloadFileId": "a04be178d3fe0cb0d1ec7591b2f608cb",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "c9383c5d458bf3345801b150d817b55a",
+          "tagId": "9610",
+          "productId": "742",
+          "uuId": "baf7fe97-2b56-4d82-a434-bd06fb1e8dd1"
+        }
+      },
+      "VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle": {
+        "name": "VMware OVF Tool for Linux 64-bit",
+        "fileName": "VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle",
+        "fileDate": "2018-04-17",
+        "fileSize": "34.79 MB",
+        "fileType": "bundle",
+        "buildNum": "7948156",
+        "descr": "Download VMware OVF Tool installer for Linux 64-bit ",
+        "md5sum": "d0dd9006d720a26278b94591a4111457",
+        "sha1sum": "63fb48e2643187a13a239376c3f25d587ab04468",
+        "sha256sum": "d327c8c7ebaac7432a589b1207410889d00c1ffd3fe18fa751b14459644de980",
+        "download": {
+          "downloadGroupCode": "OVFTOOL430",
+          "downloadFileId": "d0dd9006d720a26278b94591a4111457",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "04caf64b9971037549bd2cdfc4218995",
+          "tagId": "9610",
+          "productId": "742",
+          "uuId": "b138d672-596b-4eb9-84b0-233062c31acf"
+        }
+      },
+      "VMware-ovftool-4.3.0-7948156-mac.x64.dmg": {
+        "name": "VMware OVF Tool for Mac OSX",
+        "fileName": "VMware-ovftool-4.3.0-7948156-mac.x64.dmg",
+        "fileDate": "2018-04-17",
+        "fileSize": "18.25 MB",
+        "fileType": "dmg",
+        "buildNum": "7948156",
+        "descr": "Download VMware OVF Tool installer for Mac OSX ",
+        "md5sum": "95ce841931fcc0314f6dbc1105bbdb1c",
+        "sha1sum": "aba7b48edd85836053693c5ad96950c33c82ddfa",
+        "sha256sum": "da60098fa0060dde5ee133eea1b4ae5279a4d68a697845299f07149d306819df",
+        "download": {
+          "downloadGroupCode": "OVFTOOL430",
+          "downloadFileId": "95ce841931fcc0314f6dbc1105bbdb1c",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "446ef9515abb5a51a1f40def325f44d6",
+          "tagId": "9610",
+          "productId": "742",
+          "uuId": "99ab80fb-3927-4eec-a87f-7b2cfef77f8d"
+        }
+      }
+    }
+  },
+  "OVFTOOL430-OSS": {
+		"productId": "742",
+		"productDate": "2018-04-17",
+		"productType": "Open Source",
+		"productName": "VMware OVF Tool 4.3.0 Open Source Information",
+		"files": {
+			"open_source_licenses_ovftool430.txt": {
+				"name": "Open Source License OVFTool 4.2.0",
+				"fileName": "open_source_licenses_ovftool430.txt",
+				"fileDate": "2018-04-17",
+				"fileSize": "193.32 KB",
+				"fileType": "txt",
+				"md5sum": "893f593dca6ea434c509dcfbb302ac56",
+				"sha1sum": "a6ce6319eb54ace8ee96f1fe3001e17dab5d4a98",
+				"sha256sum": "a39df9782327b43517d55a39836c13dba1585efa056e58a9f08b70f3dd180d81",
+				"download": {
+					"downloadGroupCode": "OVFTOOL430-OSS",
+					"downloadFileId": "893f593dca6ea434c509dcfbb302ac56",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "",
+					"tagId": "",
+					"productId": "",
+					"uuId": "7b77303e-b4aa-4403-94a6-94f6f5d0a9d7"
+				}
+			}
+		}
+	},
+  "OVFTOOL420": {
+		"version": "4.2.0",
+		"productId": "614",
+		"productDate": "2017-07-27",
+		"productType": "Drivers & Tools",
+		"productName": "VMware Open Virtualization Format Tool 4.2.0",
+		"files": {
+			"VMware-ovftool-4.2.0-5965791-win.i386.msi": {
+				"name": "VMware OVF Tool for Windows 32-bit",
+				"fileName": "VMware-ovftool-4.2.0-5965791-win.i386.msi",
+				"fileDate": "2017-07-27",
+				"fileSize": "14.62 MB",
+				"fileType": "msi",
+				"buildNum": "5965791",
+				"descr": "Download VMware OVF Tool installer for Windows 32-bit ",
+				"md5sum": "5d3b43475fb3221ab797ab4966f61172",
+				"sha1sum": "67b55f7a9c9d643728257c3ec07840b87334f837",
+				"sha256sum": "dcd54ba860b9320428850dbacb39f2c8983eb902d170272f7eea2ea834d3d4e8",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420",
+					"downloadFileId": "5d3b43475fb3221ab797ab4966f61172",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "0ddccafac5e5bf0e09d53290226da126",
+					"tagId": "8259",
+					"productId": "614",
+					"uuId": "e4700472-4ebd-4ffc-9212-81329a780458"
+				}
+			},
+			"VMware-ovftool-4.2.0-5965791-win.x86_64.msi": {
+				"name": "VMware OVF Tool for Windows 64-bit",
+				"fileName": "VMware-ovftool-4.2.0-5965791-win.x86_64.msi",
+				"fileDate": "2017-07-27",
+				"fileSize": "18.55 MB",
+				"fileType": "msi",
+				"buildNum": "5965791",
+				"descr": "Download VMware OVF Tool installer for Windows 64-bit ",
+				"md5sum": "61d73a8236d6f2c803230e355372c122",
+				"sha1sum": "5c0d6453c22b23c8425d115c81aef80676e70699",
+				"sha256sum": "f22952eac551114aaf19d333f3d0d5e678b9b8f51734edfafa9317077efc0e92",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420",
+					"downloadFileId": "61d73a8236d6f2c803230e355372c122",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "b079a41c0f9b9c43cc9bfa06d9a4aa4e",
+					"tagId": "8259",
+					"productId": "614",
+					"uuId": "65837efb-8f1e-4bad-a6e7-74a606d0684b"
+				}
+			},
+			"VMware-ovftool-4.2.0-5965791-lin.i386.bundle": {
+				"name": "VMware OVF Tool for Linux 32-bit",
+				"fileName": "VMware-ovftool-4.2.0-5965791-lin.i386.bundle",
+				"fileDate": "2017-07-27",
+				"fileSize": "32.70 MB",
+				"fileType": "bundle",
+				"buildNum": "5965791",
+				"descr": "Download VMware OVF Tool installer for Linux 32-bit ",
+				"md5sum": "14d5c5694ba4cebc0025f9aebda0eb38",
+				"sha1sum": "b6bcda56b3498db5fb1f9120f882d7f5d8472642",
+				"sha256sum": "a1124b328401bb15a02ec0b282a7ddbce49395783dd66c0e3283a0c75144e279",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420",
+					"downloadFileId": "14d5c5694ba4cebc0025f9aebda0eb38",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "5d1b93a089ce07f0a36affdeb77ec7db",
+					"tagId": "8259",
+					"productId": "614",
+					"uuId": "26c1ed3c-b9c2-427b-aaf4-4fcd7e279b9f"
+				}
+			},
+			"VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle": {
+				"name": "VMware OVF Tool for Linux 64-bit",
+				"fileName": "VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle",
+				"fileDate": "2017-07-27",
+				"fileSize": "34.16 MB",
+				"fileType": "bundle",
+				"buildNum": "5965791",
+				"descr": "Download VMware OVF Tool installer for Linux 64-bit ",
+				"md5sum": "4f6e2afbcf72640cb5863bf3f60d575e",
+				"sha1sum": "92c1ac53d6dcbde362765b96800f547ddea7e2b6",
+				"sha256sum": "5040dd9fc763fb4ea5324bce758e697064f636e3c0fb838c8f69c711400bdf7e",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420",
+					"downloadFileId": "4f6e2afbcf72640cb5863bf3f60d575e",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "2d0cef7fa85172018ad815ca6cd2266a",
+					"tagId": "8259",
+					"productId": "614",
+					"uuId": "58aab59d-1fd2-4b20-ac23-11c1f4ef4d5f"
+				}
+			},
+			"VMware-ovftool-4.2.0-5965791-mac.x64.dmg": {
+				"name": "VMware OVF Tool for Mac OSX",
+				"fileName": "VMware-ovftool-4.2.0-5965791-mac.x64.dmg",
+				"fileDate": "2017-07-27",
+				"fileSize": "43.82 MB",
+				"fileType": "dmg",
+				"buildNum": "5965791",
+				"descr": "Download VMware OVF Tool installer for Mac OSX ",
+				"md5sum": "44076a4b1262b7d0f5412c3a0a903a73",
+				"sha1sum": "7d40e6b9637d2a21b180f037ff5dbe723c10a168",
+				"sha256sum": "ab665f0c47ae03d45403e5c03a9c38b473beaab868920806c6f247e0590f89c3",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420",
+					"downloadFileId": "44076a4b1262b7d0f5412c3a0a903a73",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "c4f9f9a576c78b430c3411d5cd4958a8",
+					"tagId": "8259",
+					"productId": "614",
+					"uuId": "252b8725-bb9c-475b-8393-89f843dbb43e"
+				}
+			}
+		}
+	},
+  "OVFTOOL420-OSS": {
+		"version": "4.2.0",
+		"productId": "614",
+		"productDate": "2017-07-27",
+		"productType": "Open Source",
+		"productName": "VMware OVF Tool 4.2.0 Open Source Information",
+		"files": {
+			"open_source_license_ovftool_4.2.0_GA.txt": {
+				"name": "Open Source License OVFTool 4.2.0",
+				"fileName": "open_source_license_ovftool_4.2.0_GA.txt",
+				"fileDate": "2017-07-27",
+				"fileSize": "203.6 KB",
+				"fileType": "txt",
+				"md5sum": "631cb1404d2f2436bf914f184a435b9b",
+				"sha1sum": "057c28288ec73216ccbc85ec19c95da3d1a7449e",
+				"sha256sum": "a7a3ed508e2022ec36c38f1e3e2e33a3aba11c04d0d1f1ea7fb8e670d1eb1063",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420-OSS",
+					"downloadFileId": "631cb1404d2f2436bf914f184a435b9b",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "",
+					"tagId": "",
+					"productId": "",
+					"uuId": "7f6bd9ef-31d4-4c0b-bd2e-a5ea910d74c4"
+				}
+			},
+			"VMware-OVFTool-4.2.0-ODP.iso": {
+				"name": "Open Source Disclosure Package OVFTool 4.2.0",
+				"fileName": "VMware-OVFTool-4.2.0-ODP.iso",
+				"fileDate": "2017-07-27",
+				"fileSize": "8.80 MB",
+				"fileType": "iso",
+				"md5sum": "e54b4a41d6109b2910230a717c666cbb",
+				"sha1sum": "c9019ece667555a13a7477c2a5edccd60b6ed2b8",
+				"sha256sum": "ebfe798eec7802763e6c8db3fafd21d92b5a50f754f3eb416b700df26814ac87",
+				"download": {
+					"downloadGroupCode": "OVFTOOL420-OSS",
+					"downloadFileId": "e54b4a41d6109b2910230a717c666cbb",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "",
+					"tagId": "",
+					"productId": "",
+					"uuId": "a66f6434-9a30-4d40-bfd6-02fb6d46c2e7"
+				}
+			}
+		}
+	},
+  "NSX-T-220": {
+    "version": "2.2.0",
+    "productId": "673",
+    "productDate": "2018-06-05",
+    "productType": "Product Binaries",
+    "productName": "VMware NSX-T Data Center 2.2.0",
+    "files": {
+      "nsx-unified-appliance-2.2.0.0.0.8680778.ova": {
+        "name": "NSX Manager for VMware ESXi",
+        "fileName": "nsx-unified-appliance-2.2.0.0.0.8680778.ova",
+        "fileDate": "2018-06-05",
+        "fileSize": "3.52 GB",
+        "fileType": "ova",
+        "buildNum": "8680772",
+        "descr": "This is the NSX Manager Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Manager on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+        "md5sum": "a4027f3a6b10c18f7ec4365720b348d0",
+        "sha1sum": "482e142d08cd14f2fef8ad2f39b36af3297af2cd",
+        "sha256sum": "e2620a14f14a7b43990f92ee98790c44c8217acc043d663abbef1cb6d798a0ac",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "a4027f3a6b10c18f7ec4365720b348d0",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "c3e283ab731db592d5d846abf092b5e9",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "fd17c0e7-7977-4a74-9d8d-29e6205db562"
+        }
+      },
+      "nsx-unified-appliance-2.2.0.0.0.8680778.qcow2": {
+        "name": "NSX Manager for KVM Hypervisors",
+        "fileName": "nsx-unified-appliance-2.2.0.0.0.8680778.qcow2",
+        "fileDate": "2018-06-05",
+        "fileSize": "3.49 GB",
+        "fileType": "qcow2",
+        "buildNum": "8680772",
+        "descr": "This is the NSX Manager Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Manager on a computer and use KVM tools to deploy to a KVM hypervisor. ",
+        "md5sum": "09d33ffaf3b5a691acb16d21313ab998",
+        "sha1sum": "4262c848d070e1c3450db35d5efe8a3089583c55",
+        "sha256sum": "68520635b6e4f45601e4cfc7a821892fa588b95624cd19b19c3e3d99c462a0ec",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "09d33ffaf3b5a691acb16d21313ab998",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "0df10a7e3177053ad55e5c88b4f97850",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "05ba802f-d5cd-4bb5-b4c1-6059ea2468c1"
+        }
+      },
+      "nsx-controller-2.2.0.0.0.8680774.ova": {
+        "name": "NSX Controller for VMware ESXi",
+        "fileName": "nsx-controller-2.2.0.0.0.8680774.ova",
+        "fileDate": "2018-06-05",
+        "fileSize": "931.7 MB",
+        "fileType": "ova",
+        "buildNum": "8680772",
+        "descr": "This is the NSX Controller Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Controller on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+        "md5sum": "f7e907fc1055322e7f1d23d330760352",
+        "sha1sum": "2bef3fac4b53f4caa706d7360545a9a4c3428034",
+        "sha256sum": "d9730864189ce8a57dc1e0edd06753c9416eb8ca0ed5286ee7235c5ed3a54c29",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "f7e907fc1055322e7f1d23d330760352",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "b0f4e2ebc3572dd02a9e1c166864560e",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "cb5fb25f-1a2e-469a-a81a-0b88476c1986"
+        }
+      },
+      "nsx-controller-2.2.0.0.0.8680774.qcow2": {
+        "name": "NSX Controller for KVM Hypervisors",
+        "fileName": "nsx-controller-2.2.0.0.0.8680774.qcow2",
+        "fileDate": "2018-06-05",
+        "fileSize": "902.37 MB",
+        "fileType": "qcow2",
+        "buildNum": "8680772",
+        "descr": "This is the NSX Controller Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Controller on a computer and use KVM tools to deploy to a KVM hypervisor. ",
+        "md5sum": "2e4158f15a59f04abc6d06ff57ff9afc",
+        "sha1sum": "33e991c6e74a61c7520b78e51a2e8fe4e063d6da",
+        "sha256sum": "af3a2c8e8194415777b6e41fc021b758da198418e132a107ac5b0670e7ed379d",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "2e4158f15a59f04abc6d06ff57ff9afc",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "6fd938bbdf1bda8b04b3fcb54a437d25",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "00f8e593-0112-4f57-866f-e8ef4ec2eef7"
+        }
+      },
+      "nsx-edge-2.2.0.0.0.8680783.ova": {
+        "name": "NSX Edge for VMware ESXi",
+        "fileName": "nsx-edge-2.2.0.0.0.8680783.ova",
+        "fileDate": "2018-06-05",
+        "fileSize": "660.97 MB",
+        "fileType": "ova",
+        "buildNum": "8680772",
+        "descr": "This is the NSX Edge Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Edge on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+        "md5sum": "4218b14700407a1174e61d6fdb53e232",
+        "sha1sum": "e5f26aa2e7886d11d120e3735997e92167bada6d",
+        "sha256sum": "13a8bb4414d92f989c35de8e268d6e3d1e6393b5c2dad2625987a9e676221039",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "4218b14700407a1174e61d6fdb53e232",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "ad15ef7754c4a0f1e46dfa75f20e55de",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "1a68afcd-02fc-4a9c-bc0e-08784fdb9a2f"
+        }
+      },
+      "nsx-edge-2.2.0.0.0.8680783.iso": {
+        "name": "NSX Edge for Bare Metal",
+        "fileName": "nsx-edge-2.2.0.0.0.8680783.iso",
+        "fileDate": "2018-06-05",
+        "fileSize": "706 MB",
+        "fileType": "iso",
+        "buildNum": "8680772",
+        "descr": "This is the NSX Edge Appliance in ISO format. Download the ISO and use the appropriate installation process to install the NSX Edge onto bare metal hardware. This may be manual installation via CDROM or Flash based drive or automated using a PXE based system or similar automated deployment model. ",
+        "md5sum": "2e9fe505aca42a67f30adc824ad80f80",
+        "sha1sum": "cfdbe7391c6b5d6d7457305d658f6dc0aaddf315",
+        "sha256sum": "18270da031d92ee85dfffe4d31559532a168341864cf705af1a1c30dc7fa4d19",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "2e9fe505aca42a67f30adc824ad80f80",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "9f47a8062ea5720d38ccf427d7e4f94a",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "9e6b0de9-0243-49f3-bbbb-58796961f10e"
+        }
+      },
+      "VMware-NSX-upgrade-bundle-2.2.0.0.0.8680778.mub": {
+        "name": "Master Upgrade Bundle",
+        "fileName": "VMware-NSX-upgrade-bundle-2.2.0.0.0.8680778.mub",
+        "fileDate": "2018-06-05",
+        "fileSize": "4.62 GB",
+        "fileType": "mub",
+        "buildNum": "8680772",
+        "descr": "File required for upgrade from NSX-T 2.0.0 -&gt; NSX-T 2.1.0. ",
+        "md5sum": "a380644cfa30420bff60c6be3aa5bf7f",
+        "sha1sum": "ac0a0f3321b26400ccfc7d541ea1e12296967e38",
+        "sha256sum": "aaf091f1f56b246c448c302e6c3a3f4e9e4a888ed8fed88ac41ab8014e5ad703",
+        "download": {
+          "downloadGroupCode": "NSX-T-220",
+          "downloadFileId": "a380644cfa30420bff60c6be3aa5bf7f",
+          "vmware": "downloadBinary",
+          "baseStr": "",
+          "hashKey": "215c05d8092bc9a7f13b8457b2ea9fe1",
+          "tagId": "9769",
+          "productId": "673",
+          "uuId": "5801ba7f-8ea6-4336-87bd-0b322ce96ec9"
+        }
+      }
+    }
+  },
+  "NSX-T-210": {
+		"version": "2.1.0",
+		"productId": "721",
+		"productDate": "2017-12-21",
+		"productType": "Product Binaries",
+		"productName": "VMware NSX-T 2.1.0",
+		"files": {
+			"nsx-unified-appliance-2.1.0.0.0.7395503.ova": {
+				"name": "NSX Manager for VMware ESXi",
+				"fileName": "nsx-unified-appliance-2.1.0.0.0.7395503.ova",
+				"fileDate": "2017-12-21",
+				"fileSize": "2.03 GB",
+				"fileType": "ova",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Manager Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Manager on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+				"md5sum": "ceb09d4c2a044e745be0e5ab7f698295",
+				"sha1sum": "7e0bc7026371372aaae0edbc773bd4e755abd67f",
+				"sha256sum": "02929fbbdeb28f7cfc5b67fb7dd84f7d850ddb448bf7d3e5ab290dfe8cb85465",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "ceb09d4c2a044e745be0e5ab7f698295",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "48acb34e5fd0e289f9739f58deea9c51",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "e268e430-59fd-45f2-a7c4-08629fe084ef"
+				}
+			},
+			"nsx-unified-appliance-2.1.0.0.0.7395503.qcow2": {
+				"name": "NSX Manager for KVM Hypervisors",
+				"fileName": "nsx-unified-appliance-2.1.0.0.0.7395503.qcow2",
+				"fileDate": "2017-12-21",
+				"fileSize": "2.99 GB",
+				"fileType": "qcow2",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Manager Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Manager on a computer and use KVM tools to deploy to a KVM hypervisor. ",
+				"md5sum": "e10d2b1cf4d513bfb0c3287bbaf4b682",
+				"sha1sum": "55f7a5b91c9e6c7c5d1132484a995a152a02d616",
+				"sha256sum": "cddd059e961851378c5c74ea0f6b99420da7c92a3a16523591841a6742241db7",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "e10d2b1cf4d513bfb0c3287bbaf4b682",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "8b0da2eb619abc6c02c9d1be5c570a80",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "183f4bed-4cb7-4b84-ab3f-bfe710261cdb"
+				}
+			},
+			"nsx-controller-2.1.0.0.0.7395493.ova": {
+				"name": "NSX Controller for VMware ESXi",
+				"fileName": "nsx-controller-2.1.0.0.0.7395493.ova",
+				"fileDate": "2017-12-21",
+				"fileSize": "811.82 MB",
+				"fileType": "ova",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Controller Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Controller on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+				"md5sum": "46f4cf5fa854bcd4f2c74f849e7acb69",
+				"sha1sum": "9704abb5e0293a600004a8943d6a1044148bd5b1",
+				"sha256sum": "e473d5997d2e91f8802ab90aaa496234d2b5a108bde6e05b2a15ff0d4ba274f5",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "46f4cf5fa854bcd4f2c74f849e7acb69",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "81b171bae76e0d4b2de4eca0f6888ee9",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "e7c7f09a-3567-4aa4-9c80-d30bdae030fe"
+				}
+			},
+			"nsx-controller-2.1.0.0.0.7395493.qcow2": {
+				"name": "NSX Controller for KVM Hypervisors",
+				"fileName": "nsx-controller-2.1.0.0.0.7395493.qcow2",
+				"fileDate": "2017-12-21",
+				"fileSize": "1.88 GB",
+				"fileType": "qcow2",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Controller Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Controller on a computer and use KVM tools to deploy to a KVM hypervisor. ",
+				"md5sum": "2d955cefaf8bedbacab45bd54d85efa4",
+				"sha1sum": "30b7d020b7f7d2646c550cedf9b9009fe5da88eb",
+				"sha256sum": "e4136e85105765fea4cde3f857b0af29c9df02b8113c03fea020fbdd0e8979a0",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "2d955cefaf8bedbacab45bd54d85efa4",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "28fa03c0d203783df51511b564d19e7e",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "a167ce93-2699-4dcc-91bf-99c064d21a13"
+				}
+			},
+			"nsx-edge-2.1.0.0.0.7395502.ova": {
+				"name": "NSX Edge for VMware ESXi",
+				"fileName": "nsx-edge-2.1.0.0.0.7395502.ova",
+				"fileDate": "2017-12-21",
+				"fileSize": "516.31 MB",
+				"fileType": "ova",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Edge Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Edge on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+				"md5sum": "46bdb3be8b48cdea045eed660a9d68d0",
+				"sha1sum": "c30dc4378476c7e2ccbbecfaaa97f5eac9c4a656",
+				"sha256sum": "643df19c51d37dc21b4ba92365da14ee7c9e92fb023bf3d78e08d2c25ee2a336",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "46bdb3be8b48cdea045eed660a9d68d0",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "1ecb7c478c789fb7a3c0a3989fb8e72a",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "dd993136-275e-43b6-83e7-6ba10fec89ac"
+				}
+			},
+			"nsx-edge-2.1.0.0.0.7395502.iso": {
+				"name": "NSX Edge for Bare Metal",
+				"fileName": "nsx-edge-2.1.0.0.0.7395502.iso",
+				"fileDate": "2017-12-21",
+				"fileSize": "548.00 MB",
+				"fileType": "iso",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Edge Appliance in ISO format. Download the ISO and use the appropriate installation process to install the NSX Edge onto bare metal hardware. This may be manual installation via CDROM or Flash based drive or automated using a PXE based system or similar automated deployment model. ",
+				"md5sum": "3efa2108392eeb2a65706b4e8356afe5",
+				"sha1sum": "706800aac272e0a43f79d251b68a9ccbaccc2f9b",
+				"sha256sum": "88b9b318c859a85ace62816baa0e78923ac0fb9fdf9f256643b74ad58d5fbcfe",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "3efa2108392eeb2a65706b4e8356afe5",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "bac6a7e7ad610bc7e5ad22180df9622e",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "4e9647fc-48ae-46dd-a705-72c7845b3e68"
+				}
+			},
+			"nsx-keymanager-2.1.0.0.0.7395504.ova": {
+				"name": "NSX Key Manager for VMware ESXi",
+				"fileName": "nsx-keymanager-2.1.0.0.0.7395504.ova",
+				"fileDate": "2017-12-21",
+				"fileSize": "401.54 MB",
+				"fileType": "ova",
+				"buildNum": "7395507",
+				"descr": "This is the NSX Key Manager Appliance in Open Virtualization Appliance Format (OVA). It is responsible for generating and storing the root keys for each DNE rule. It handles key rotation and revocation and pushes the appropriate keys down to the hosts that require them. Download the NSX Key Manager appliance on a computer and use the VMware OVF Tool or vSphere GUI client to deploy to an ESXi host. ",
+				"md5sum": "16fc7307513c3011d485dff4c2e7da23",
+				"sha1sum": "655a606ba7c561058b7d238453efe9062a5e1a9c",
+				"sha256sum": "3a07a6dcd4b88c1bfafaf76b86b56225cfcba5e4e2610493322162ca57f52ae8",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "16fc7307513c3011d485dff4c2e7da23",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "5c6add4f17211c692a411590ac50b94f",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "9da402c5-fb1b-4367-8b85-6bac6bfade2c"
+				}
+			},
+			"VMware-NSX-upgrade-bundle-2.1.0.0.0.7395503.mub": {
+				"name": "Master Upgrade Bundle",
+				"fileName": "VMware-NSX-upgrade-bundle-2.1.0.0.0.7395503.mub",
+				"fileDate": "2017-12-21",
+				"fileSize": "2.88 GB",
+				"fileType": "mub",
+				"buildNum": "7395507",
+				"descr": "File required for upgrade from NSX-T 2.0.0 -&gt; NSX-T 2.1.0. ",
+				"md5sum": "9802743f9394af30db536e2db2758cde",
+				"sha1sum": "8aaf3201b894eaefb4b20530fe32d2b431daf14e",
+				"sha256sum": "d39747f40455db8e7f6a5a03bfa8e2ac43bff1bbe18cefe9d4f8918c81fddf3f",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "9802743f9394af30db536e2db2758cde",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "54d8e6fde67225090dd0daa49baaf314",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "5dd11a79-02f8-48e8-8975-95264ffaff75"
+				}
+			},
+			"nsx-container-2.1.0.0.0.7371408.zip": {
+				"name": "NSX Container",
+				"fileName": "nsx-container-2.1.0.0.0.7371408.zip",
+				"fileDate": "2017-12-21",
+				"fileSize": "569.73 MB",
+				"fileType": "zip",
+				"buildNum": "7371408",
+				"descr": "This package includes the required modules to integrate NSX-T with Kubernetes, Pivotal Application Service (PAS), Redhat OpenShift based on CNI integration. This package includes the NSX Container Plugin, NSX Node Agent, OVS and Pivotal Operations Manager tile bits Please refer to the &quot;Drivers and Tools&quot; NSX Container Plugin tab for the latest patch update. ",
+				"md5sum": "5b5d174a0270dee2b347984253f549cd",
+				"sha1sum": "c6685a7a958b03e9affdb9174fa8d9bbfd34c1a3",
+				"sha256sum": "20c733909ea5f6edaba3f03a8cafe46b8577469166a28d92b32319f390adc68a",
+				"download": {
+					"downloadGroupCode": "NSX-T-210",
+					"downloadFileId": "5b5d174a0270dee2b347984253f549cd",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "0827efca6d38f58d86545dc2f22dae67",
+					"tagId": "9305",
+					"productId": "721",
+					"uuId": "5aa888f7-c2ff-44eb-9413-158a62aafa7c"
+				}
+			}
+		}
+	}
+}

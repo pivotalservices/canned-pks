@@ -49,5 +49,29 @@ The default setup config would use DNS names for the above mentioned resources (
     * Register parameters with the pipeline
     * Rerun add-routers followed by config-nsx-t-extras job group
 
+## Static Routing for NSX-T T0 Router
+Please refer to the [Static Routing Setup](./static-routing-setup.md) for details on the static routing.
+
 ## More details on NSX-T Install pipeline
 Please refer to the [nsx-t-gen FAQs](https://github.com/sparameswaran/nsx-t-gen/blob/master/docs/faqs.md) for additional details on the various configurations possible.
+
+## NSX-T OVA deployment fails
+If the NSX-T Management vm creation fails during OVA deployment with following messages, this can be indicate of memory issues.
+
+```
+[21-08-18 21:54:36] Uploading nsx-edge.vmdk... OK
+[21-08-18 21:54:36] Powering on VM...
+govc: DRS cannot find a host to power on or migrate the virtual machine.
+failed
+```
+Shutdown and remove the NSX-T Controllers or Edge instances. Mgr is just a singleton and should be okay. Modify the following parameter and rerun the install pipeline so the VMs are brought back up with memory reservation turned OFF.
+```
+nsx_t_keep_reservation: false # true for Prod setup
+```
+Ensure the property is saved in `params/nsx-t-for-canned-pks-params.yml`, rerun the param-merger to get the updated property reflected properly before re-running the pipeline again. Having reservation ON can starve the underlying infrastructure if its already overloaded or has lower memory.
+
+## PKS Cluster creation fails
+If the pks cluster creation fails with following error, it might be due to overload on the underlying infrastructure. Change the PKS plan to bring up one worker at a time from default 3 or 5 workers.
+```
+nsx-t-osb-proxy/pks-nsx-t-osb-proxy.stderr.log:time=“2018-08-24T14:18:10Z” level=warning msg=“There is no resource for cluster f453ef9a-bbc4-4834-8db8-604641b0f5d8\n” pks-networking=CollectResources
+```

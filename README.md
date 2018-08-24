@@ -53,7 +53,6 @@ The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and
 { "user": "root", "env": [ "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "LANG=C", "HOME=/root" ] }
 ```
 [2]: To manually download vmware bits (requires login)
-
 [NSX-T 2.1 bits](https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-210&productId=673)
 
 [OVFTool 4.2 bits](https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=OVFTOOL420#)
@@ -78,6 +77,10 @@ All the steps described below are handled automatically by the `bom-downloader.s
 * For Pivnet tiles, create a tarball of the tile + stemcell specified (that matches the stemcell version specified in the tile metadata and iaas) and save it under the resources/pivnet-tile folder of the offline bucket.
 * For Pivnet non-Tiles (like Ops Mgr Ova), download the OVA version specified in the bom (and matching the IAAS) and save it under the resources/pivnet-non-tile folder of the offline bucket.
 * For VMware bits (like NSX-T or Ovftool), download the bits with version specified in the bom (and matching the type) and save it under the resources/vwmare folder of the offline bucket.
+
+## FAQs
+
+Check the detailed [FAQs](docs/faqs.md) doc to check on pre-reqs and other issues before proceeding with the install.
 
 ## Client Machine Setup
 The Jumpbox or client vm where the BOM is downloaded and uploaded needs access to online resources and also should have Docker and other utilities installed.
@@ -190,6 +193,9 @@ The effective parameters should be generated using the `param-merger` tool (avai
 ```
 ./param-merger <params-for-canned-pks-harbor.yml> <user-inputs-for-canned-pks.yml> effective-harbor-install-params.yml
 ```
+## Other Changes before kicking off Install
+
+Check the full [FAQS](docs/faqs.md) section for the DNS changes required to handle routing to Ops Mgr, NSX Mgr, PKS Controller and Harbor.
 
 ## Running the install
 Note: Ensure the jumpbox or client machine from where concourse gets kicked off to have access to the concourse server and has `fly` installed and also has the pipeline templates and effective parameters file ready and available.
@@ -212,7 +218,11 @@ fly -t concourse-canned-pks unpause-pipeline -p  offline-install-nsx-t
 
   <div><img src="images/nsx-t-install.png" width="500"/></div>
 
+
+  Ensure the dns records are present for NSX Mgr FQDN and pointing to correct values.
+
 Note: In case of any issues or request to delete the install, use the wipe-env job to wipe away the NSX-T Mgmt plane and also to remove the NSX-T vibs from the ESXi hosts. The wipe does require a manual rolling restart of the ESXi hosts for clean removal of the vibs at end of the wipe job.
+
 
 * Installing PKS
 Register the generated effective PKS & Harbor param file with the offline PKS install pipeline template to kick off the PKS install in offline mode:
@@ -231,7 +241,11 @@ fly -t concourse-canned-pks unpause-pipeline -p  offline-install-pks
 
   <div><img src="images/pks-install.png" width="500"/></div>
 
+  Users can opt to go with single or three azs. Ensure the resource pools are created, along with dns records for PKS controller.
+
 * Installing Harbor
 Select the `harbor-install-standalone` tab at top and hit `+` icon against upload-harbor to kick off the Harbor Tile install in offline mode.
 
   <div><img src="images/harbor-install.png" width="500"/></div>
+
+Ensure the dns records are present for harbor.<domain>.

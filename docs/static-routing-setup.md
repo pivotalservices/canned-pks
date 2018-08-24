@@ -10,11 +10,11 @@ The NSX-T T0 router should be gateway for all the deployed components that are u
 
 If the T0 Router and the external ip pool need to share the same CIDR, then it requires careful planning to setup the routing of the externally exposed IPs via the T0 Router ip. This is applicable in setups where a /24 CIDR is allotted to the client to use and everything needs to be within that CIDR to be routable or exposed to outside as there can be several such similar setups in a big shared infrastructure.
 
-Sample Requirement: User allowed to only use a specific CIDR for exposing to outside. All IPs need to be in the 10.193.105.28/25 range. Things need to be routed via the T0 Router IP : 10.193.105.11.
+Sample Requirement: User allowed to only use a specific CIDR for exposing to outside. All IPs need to be in the 10.193.105.28/25 range. Things need to be routed via the T0 Router IP : 10.193.105.10.
 
 This requires a careful division of the subnet (here 10.193.105.0/24) into smaller subnets so a specific CIDR would be statically routed through the T0 router without overlapping against the IPs meant for the T0 Routers.
 
-Here, we are dividing 10.193.105.0/24 into 2 big subnets, with first half allotted for the T0 Router (the split can only in ranges of 2) and external IPs in second half 10.193.105.128-10.193.105.255 getting routed via the 10.193.105.11.
+Here, we are dividing 10.193.105.0/24 into 2 big subnets, with first half allotted for the T0 Router (the split can only in ranges of 2) and external IPs in second half 10.193.105.128-10.193.105.255 getting routed via the 10.193.105.10.
 
 
 | T0 Router |  T0 IP | Subnet for external ip pool |

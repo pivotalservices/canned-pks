@@ -58,13 +58,14 @@ nsx_t_t0router_gateway: 10.1.1.1
 # External IP Pool
 # This should be reachable from the external world via the T0 router
 # using either BGP or static routes
+# First 20 IPs reserved for Ops Mgr, PKS controller, Harbor and others (even PAS GoRouters, SSH...)
 nsx_t_external_ip_pool_cidr: 10.100.5.0/24
 nsx_t_external_ip_pool_gateway: 10.100.5.1
-nsx_t_external_ip_pool_start: 10.100.5.10                 # Starting external ip -> Should not include gateway
+nsx_t_external_ip_pool_start: 10.100.5.21                  # Starting external ip -> Should not include gateway
 nsx_t_external_ip_pool_end: 10.100.5.200                   # Ending external ip -> Should not include gateway
 # Following ip address should be mapped to opsmgr.((dnsdomain))
-nsx_t_nat_rules_opsman_ip: 10.100.5.15                    # Ops mgr external ip -> should be within the start and end range
-nsx_t_nat_rules_snat_translated_ip_for_all: 10.100.5.10   # All internal private ips translated to an external ip over SNAT -> should be within the start and end range
+nsx_t_nat_rules_opsman_ip: 10.100.5.15                    # Ops mgr external ip -> should be within the external pool cidr range, but outside of the start and end range of external ip pool
+nsx_t_nat_rules_snat_translated_ip_for_all: 10.100.5.10   # Should be within the cidr range, but outside of the start and end range of external ip pool
 
 # CSR fields for NSX-T Maanger
 csr_request_org_name: Company
@@ -104,12 +105,11 @@ pks_api_admin_pwd: pksadmin123
 
 # PKS Controller external ip
 # Following ip address should be mapped to api.pks.((dnsdomain))
-pks_api_ip: 10.100.5.16      # PKS  -> should be within the start and end range of external ip pool
-
+pks_api_ip: 10.100.5.16      # PKS Controller -> should be within the cidr range, but outside of the start and end range of external ip pool
 
 # Harbor details
 # Harbor would be accessible at harbor.((dnsdomain))
 harbor_admin_pwd: harboradmin123
 # Following ip address should be mapped to harbor.((dnsdomain))
-harbor_app_external_ip: 10.100.5.17    # External exposed IP for Harbor -> should be within the start and end range of external ip pool
+harbor_app_external_ip: 10.100.5.17    # External exposed IP for Harbor -> should be within the cidr range, but outside of the start and end range of external ip pool
 harbor_app_disk_size: 102400         # in MBs

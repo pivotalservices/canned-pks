@@ -11,6 +11,11 @@ The NSX-T T0 router should be gateway for all the deployed components that are u
 If the client setup allows using any CIDR or subnet to be used as a routable ip (like a POD or some dedicated private network and not necessarily shared with others) that can be self-administered, then one can use a transient network to be used as the exposed external ip while keeping the actual ip pools separate.
 This can be the case with a private Ubiquiti Edge Router that acts as gateway to the entire NSX-T install.
 
+Sample step to include static routing in a VMware vPod Environment on the main vPod Router vm:
+```
+post-up route add -net 10.208.40.0 netmask 255.255.255.0 gw 192.168.100.3
+pre-down route del -net 10.208.40.0 netmask 255.255.255.0 gw 192.168.100.3
+```
 
 | T0 Router |  T0 IP | Transient subnet for External IP Pool | \# of IPs that can be exposed | Sample DNAT and SNAT |
 |-------------|---------------|-------------------|----|-----------------|
@@ -25,8 +30,8 @@ After deciding on the IPs that are already reserved for exposed components like 
 
 | Pool Name |  CIDR | Start | End | Notes
 |-----------|----------------|---------------|-------------|-----------------|
-| PAS-Pool1 | 10.208.40.0/24 |  10.208.40.21 | 10.208.40.254  | Reserving first 20 ips for Ops Mgr, PAS external facing components. Externally exposed PAS Apps would use from the PAS-Pool.
-| PKS-Pool2 | 10.208.50.0/24 |  10.208.50.21 | 10.208.50.254  | Reserving first 20 ips for PKS Controller, Harbor external facing components. Rest can be used by the PKS Clusters.
+| PAS-Pool1 | 10.208.40.0/24 |  10.208.40.21 | 10.208.40.254  | Reserving first 20 IPs for Ops Mgr, PAS external facing components. Externally exposed PAS Apps would use from the PAS-Pool.
+| PKS-Pool2 | 10.208.50.0/24 |  10.208.50.21 | 10.208.50.254  | Reserving first 20 IPs for PKS Controller, Harbor external facing components. Rest can be used by the PKS Clusters.
 
 ### Using Same CIDR for T0 and External IP Pool
 
@@ -37,7 +42,6 @@ Sample Requirement: User allowed to only use a specific CIDR for exposing to out
 This requires a careful division of the subnet (here 10.193.105.0/24) into smaller subnets so a specific CIDR would be statically routed through the T0 router without overlapping against the IPs meant for the T0 Routers.
 
 Here, we are dividing 10.193.105.0/24 into 2 big subnets, with first half allotted for the T0 Router (the split can only in ranges of 2) and external IPs in second half 10.193.105.128-10.193.105.255 getting routed via the 10.193.105.10.
-
 
 | T0 Router |  T0 IP | Subnet for external ip pool |
 \# of IPs that can be exposed |
@@ -76,10 +80,10 @@ Sample Image of configuring static route when T0 Router and external ip pool are
 
 Similar to the transient network approach, after deciding on the IPs that are already reserved for exposed components like Ops Mgr, PAS GoRouter, PAS SSH Proxy, Harbor, PKS Controller etc., allot or divide up the remaining IPs for the PAS and PKS external ip pools by tweaking the range of the external IP Pool.
 
-| Pool Name |  CIDR | Start | End | Notes
+| Pool Name |  CIDR | Start | End | Notes |
 |-----------|----------------|---------------|-------------|-----------------|
-| PAS-Pool1 | 10.193.105.64/27  |  10.193.105.72 | 10.193.105.94  | Reserving first 8 ips for Ops Mgr, PAS external facing components. Externally exposed PAS Apps would use from the PAS-Pool.|
-| PAS-Pool2 | 10.193.105.96/27  |  10.193.105.104 | 10.193.105.126  | Reserving first 8 ips for PKS Controller, Harbor external facing components. Rest can be used by the PKS clusters.|
+| PAS-Pool1 | 10.193.105.64/27  |  10.193.105.72 | 10.193.105.94  | Reserving first 8 IPs for Ops Mgr, PAS external facing components. Externally exposed PAS Apps would use from the PAS-Pool.|
+| PAS-Pool2 | 10.193.105.96/27  |  10.193.105.104 | 10.193.105.126  | Reserving first 8 IPs for PKS Controller, Harbor external facing components. Rest can be used by the PKS clusters.|
 
 ### Sample NAT setup
 

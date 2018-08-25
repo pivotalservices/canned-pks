@@ -58,7 +58,7 @@ compute_manager_configs: |
     vcenter_pwd: ((vcenter_pwd))
     clusters:
     # Multiple clusters under same vcenter can be specified
-    - vcenter_cluster: ((vcenter_cluster))
+    - vcenter_cluster: ((esxihost_vcenter_cluster))
       overlay_profile_mtu: 1600 # Min 1600
       overlay_profile_vlan: ((nsx_t_overlay_profile_vlan)) # VLAN ID for the TEP/Overlay network
       uplink_vmnics: ((nsx_t_esxi_vmnics))

@@ -20,7 +20,7 @@ vcenter_host: vcenter.mycompany.com
 vcenter_usr: administrator@vsphere.local
 vcenter_pwd: vcenterAdminPassword
 vcenter_datacenter: Datacenter
-vcenter_cluster: Cluster1
+vcenter_cluster: Cluster1                              # vCenter Mgmt Cluster for hosting the NSX-T Management Plane
 vcenter_datastore: a-xio
 vcenter_rp: ""
 mgmt_portgroup: 'VM Network'
@@ -30,6 +30,7 @@ dnsdomain: mycompany.com
 defaultgateway: 1.1.1.1
 netmask: 255.255.255.0
 esxi_hosts_root_pwd: esxiRootPassword                  # Esxi Host `root` Password
+esxihost_vcenter_cluster: K8s-Cluster                  # vCenter Cluster to be used for running the managed VMs, including k8s
 
 # NSX-T config
 nsx_t_esxi_vmnics: vmnic4   # Esxi Host unused vmnic to be used for nsx

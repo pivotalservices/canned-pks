@@ -9,11 +9,13 @@
     * Download the actual install bits.
   2) Docker and python setup on the Jumpbox machine
   3) DNS Setup access
+  4) Resource Pools
+  Resource pools specified for the NSX-T install or PKS install should exist.
 
 ## bom-downloader appears to hang or fail?
 
 Ensure there is no proxy between the downloader client vm and Internet.
-Remove/unset http_proxy env variable if its set. Also, downloading the vmware bits requires docker install (again with no proxy). Check the docker configurations to see if there is a proxy misconfiguration. Simplest and best is to avoid proxy; if proxy is required to go out, check with docker documentation on specifying proxies: https://docs.docker.com/network/proxy/
+Remove/unset http_proxy env variable if its set. Also, downloading the vmware bits requires docker install (again with no proxy). Check the docker configurations to see if there is a proxy misconfiguration. Best approach is to avoid proxy; if proxy is required to get online, check with docker documentation on specifying proxies: https://docs.docker.com/network/proxy/
 
 ## bom-uploader appears to hang?
 
@@ -21,7 +23,7 @@ Ensure there is no proxy between the uploader client vm and the minio server.
 Remove/unset http_proxy env variable if its set.
 
 ## Downloading vmware bits
-Ensure the vware creds are correctly filled in the `bom/bom*.yml` file and you are able to download the `apnex/vmw-cli` docker image. The bom-mgmt tool would then use the docker image to download nsx-t bits.
+Ensure the vware creds are correctly filled in the `bom/bom*.yml` file and you are able to download the `apnex/vmw-cli` docker image. The bom-mgmt tool would then use the docker image to download VMware NSX-T install bits.
 
 ## DNS Setup
 
@@ -36,7 +38,7 @@ The setup require DNS configuration to be updated to reflect the new dns names.
 
 ## Using IPs instead of using DNS Names
 
-The default setup config would use DNS names for the above mentioned resources (NSX Mgr, Ops Mgr, PKS Controller, Harbor). DNS is also required for the PKS UAA Client creation and Clusters. So, better to avoid using IPs and use the DNS names.
+The default setup config would use DNS names for the above mentioned resources (NSX Mgr, Ops Mgr, PKS Controller, Harbor). DNS is also required for the PKS UAA Client creation (uses uaa or api.<domain-name>) and Clusters. So, best to avoid using IPs and configure setup to use the DNS names.
 
 ## Adding additional T1 Routers or Logical Switches
   * Modify the final generated parameters to specify additional T1 routers or switches and rerun add-routers.
@@ -64,7 +66,7 @@ If the NSX-T Management vm creation fails during OVA deployment with following m
 govc: DRS cannot find a host to power on or migrate the virtual machine.
 failed
 ```
-Shutdown and remove the NSX-T Controllers or Edge instances. Mgr is just a singleton and should be okay. Modify the following parameter and rerun the install pipeline so the VMs are brought back up with memory reservation turned OFF.
+Shutdown and remove the NSX-T Controllers or Edge instances. Mgr is just a singleton instance not taking large memory and should be okay. Modify the following parameter and rerun the install pipeline so the VMs are brought back up with memory reservation turned OFF.
 ```
 nsx_t_keep_reservation: false # true for Prod setup
 ```

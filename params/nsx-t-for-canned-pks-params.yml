@@ -9,7 +9,7 @@ nsx_t_installer: ((nsx_t_installer))
 
 enable_ansible_debug: false # set value to true for verbose output from ansible
 nsx_t_installer: ((nsx_t_installer))  # Set to name of installer or env or any value so resources can be identified
-nsx_t_version: 2.1
+nsx_t_version: ((nsx_t_version))      # version of nsx-t being installed - can be 2.1 or 2.2
 
 # vCenter details to deploy the Mgmt OVAs (Mgr, Edge, Controller)
 vcenter_host: ((vcenter_host))       # EDIT - this is for deployment of the ovas for the mgmt plane
@@ -17,17 +17,17 @@ vcenter_usr: ((vcenter_usr))   # EDIT - this is for deployment of the ovas for t
 vcenter_pwd: ((vcenter_pwd))               # EDIT - this is for deployment of the ovas for the mgmt plane
 vcenter_datacenter: ((vcenter_datacenter))            # EDIT
 vcenter_datastore: ((vcenter_datastore))              # EDIT
-vcenter_cluster: ((nsx_t_mgmt_vcenter_cluster))                  # EDIT
-vcenter_manager: ((vcenter_host))                # EDIT
-vcenter_rp: ((nsx_t_vcenter_rp))                              # EDIT - can be blank - resource pool where mgmt plane vms would get deployed
+vcenter_cluster: ((nsx_t_mgmt_vcenter_cluster))       # EDIT
+vcenter_manager: ((vcenter_host))                     # EDIT
+vcenter_rp: ((nsx_t_vcenter_rp))                      # EDIT - can be blank - resource pool where mgmt plane vms would get deployed
 
 # OVA general network settings
-ntpservers: ((ntpservers))                   # EDIT
-mgmt_portgroup: ((mgmt_portgroup))            # EDIT
-dnsserver: ((dnsserver))                     # EDIT
+ntpservers: ((ntpservers))                # EDIT
+mgmt_portgroup: ((mgmt_portgroup))        # EDIT
+dnsserver: ((dnsserver))                  # EDIT
 dnsdomain: ((dnsdomain))                  # EDIT
-defaultgateway: ((defaultgateway))                # EDIT
-netmask: ((netmask))                    # EDIT
+defaultgateway: ((defaultgateway))        # EDIT
+netmask: ((netmask))                      # EDIT
 
 # The Esxi Hosts can be added to transport nodes in two ways:
 # a) specify the esxi hosts individually - first checked for
@@ -166,7 +166,7 @@ nsx_t_edge_cluster: 'Edge Cluster'
 # For outbound uplink connection used by Edge
 nsx_t_single_uplink_profile_name: "single-uplink-profile"
 nsx_t_single_uplink_profile_mtu: 1600 # Min 1600
-nsx_t_single_uplink_profile_vlan: 0 # Default
+nsx_t_single_uplink_profile_vlan: ((nsx_t_uplink_profile_vlan)) # Default should be 0
 
 # For internal overlay connection used by Esxi hosts
 nsx_t_overlay_profile_name: "host-overlay-profile"
@@ -243,12 +243,12 @@ nsx_t_container_ip_block_spec: |
   container_ip_blocks:
     # For PKS clusters
   - name: node-container-ip-block-pks
-    cidr: 172.24.0.0/14
-    ncp/shared_resource: 'true'
+    cidr: 172.24.0.0/16
     # No tags for this block
   - name: pod-container-ip-block-pks
-    cidr: 172.28.0.0/14
-    ncp/shared_resource: 'true'
+    cidr: 172.28.0.0/16
+    tags:
+      ncp/shared_resource: 'true'
 
 
 

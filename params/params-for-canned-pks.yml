@@ -151,8 +151,10 @@ pks_tile_cluster_service_network_name: PKS-Services # Should match the PKS-Servi
 # Otherwise the pks-nsx-t-precheck errrand would fail.
 pks_tile_nsx_skip_ssl_verification: true # can be true or false
 
-# Disable PKS NSX-T Precheck Errand
+# WARNING!! Dont disable PKS NSX-T Precheck Errand
+# The errand needs to be run to tag the ip blocks, routers, ip pools all correctly and to also check the NSX-T Health and status
 pks_tile_disable_nsx_t_precheck_errand: false                          # Default: false. Set to true if using medium edge sizes as PKS Errand would fail with smaller edges
+
 
 # PKS Main configs
 pks_tile_t0_router_name: DefaultT0Router                               # EDIT - Name of T0 Router to be used for PKS

@@ -37,11 +37,13 @@ bits:
 - name: nsxedgegen-nsx-t-gen-worker-v2.1-docker.tgz
   contentType: application/gzip
   resourceType: docker
+  tag: v2.1
   imageName: nsxedgegen/nsx-t-gen-worker
-- name: pcfnorm-rootfs-latest-docker.tgz
+- name: pcfnorm-rootfs-1.0.17-docker.tgz
   contentType: application/gzip
   resourceType: docker
   imageName: pcfnorm/rootfs
+  tag: 1.0.17
 - name: czero-cflinuxfs2-latest-docker.tgz
   contentType: application/gzip
   resourceType: docker

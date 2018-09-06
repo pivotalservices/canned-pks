@@ -35,7 +35,7 @@ The setup require DNS configuration to be updated to reflect the new dns names.
 | Ops Mgr   | opsmgr    | ((dnsdomain)) | opsmgr.corp.local    | ((nsx_t_nat_rules_opsman_ip)) | Ops Mgr request would be routed to the external `nsx_t_nat_rules_opsman_ip` ip provided for Ops Mgr |
 | PKS Controller   | *.pks | ((dnsdomain)) | *.pks.corp.local    | ((pks_api_ip)) | Any `api.pks.corp.local` or `uaa.pks.corp.local` would be routed to the preconfigured external `pks_api_ip` ip address |
 | Harbor   | harbor | ((dnsdomain)) | harbor.corp.local    | ((harbor_app_external_ip)) | `harbor.corp.local` would be routed to the external `harbor_app_external_ip` ip specified. |
-
+| PKS-Cluster-Name   | some-cluster-prefix | ((dnsdomain)) | cluter1.pks.corp.local    | ((exposed_external_ip)) | `cluster1.pks.corp.local` would be routed to the external exposed_external_ip specified. |
 ## Using IPs instead of using DNS Names
 
 The default setup config would use DNS names for the above mentioned resources (NSX Mgr, Ops Mgr, PKS Controller, Harbor). DNS is also required for the PKS UAA Client creation (uses uaa or api.<domain-name>) and Clusters. So, best to avoid using IPs and configure setup to use the DNS names.

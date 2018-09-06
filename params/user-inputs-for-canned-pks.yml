@@ -6,9 +6,11 @@ final_s3_endpoint: http://<MINIO_HOST>:<MINIO_PORT>/         # EDIT the minio ad
 final_s3_bucket: canned-pks
 final_s3_access_key_id: <minio_access_id>
 final_s3_secret_access_key: <minio_secret_access_key>
+
 # Resources path: <Bucket>/<offline_run_id>/resources/<type>/<actual-offline-resource>
-offline_run_id: ""  # Default would be empty string unless there are multiple runs using same bucket
+offline_run_id: ""     # Default would be empty string unless there are multiple runs using same bucket
 nsx_t_installer: cannedpks
+nsx_t_version: 2.1    # Can be 2.1 or 2.2
 
 # Pivnet tokens and tile versions
 pivnet_token: asdfjalsdfk2342l
@@ -48,6 +50,7 @@ nsx_t_edge_ips: '1.1.1.5,1.1.1.6'                      # 2 or more sets of ips f
 nsx_t_edge_portgroup_ext: vlan-3508                    # Portgroup for the external uplink network
 nsx_t_edge_portgroup_transport: vlan-3510              # Portgroup for the internal network for TEP and overlay
 nsx_t_overlay_profile_vlan: '3510'                     # VLAN ID of the internal network used by TEP and overlay
+nsx_t_uplink_profile_vlan: 0                           # VLAN ID of the external uplink network, default is 0, we expect the vlan to be already tagged
 
 # NSX T0 Router Details
 nsx_t_t0router_ips_cidr: '24'

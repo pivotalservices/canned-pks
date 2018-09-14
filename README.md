@@ -23,7 +23,7 @@ The install is meant to be run in an offline mode by first creating an OVA that 
 * Now there is no more need for internet connection.
 * Next step is to edit the parameters for install/deploy of NSX-T and layered products.
   * Edit the `params/user-inputs-for-canned-pks.yml` file .
-  * Then run the `tools/param-merger` to merge the pre-filled `params\nsx-t-for-canned-pks-params.yml` with the `params\user-inputs-for-canned-pks.yml` to get an effective param file for nsx-t install.
+  * Then run the `tools/param-merger` to merge the pre-filled `params/nsx-t-for-canned-pks-params.yml` with the `params/user-inputs-for-canned-pks.yml` to get an effective param file for nsx-t install.
   * Same way, generate the effective param file for PKS install.
 * Next is to register the pipeline and params against Concourse
   * Install NSX-T
@@ -148,7 +148,7 @@ Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc
 * Downloading BOM bits
 
 Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
-Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools\setup.sh` and the tools is being run in an environment with online access.
+Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools/setup.sh` and the tools is being run in an environment with online access.
 
 Change to the `tools` folder. Edit the `setup.sh` script and then run the `bom-downloader.sh`. This would start the download of the various github, docker hub and pivotal resources declared in the bom file followed by downloading of my.vmware.com resources using a special docker image.
 

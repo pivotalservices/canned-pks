@@ -11,6 +11,26 @@ The install is meant to be run in an offline mode by first creating an OVA that 
 * [PKS v1.1.* Install pipeline Repo](https://github.com/sparameswaran/nsx-t-ci-pipeline/tree/nsxt-2.1)
 * [BOM-Mgmt Repo](https://github.com/pivotalservices/bom-mgmt)
 
+## High Level steps
+* Deploy the prebuilt OVA image containing Concourse and Minio on vcenter. The credentials to the concourse and minio are hardcoded into the built image.
+* Ensure the minio server is accessible from the VM.
+* Use a Jumpbox or client machine (with internet access and connection to the Concourse VM) to run next set of steps with the canned-pks repo contents:
+  * Edit the `tools/setup.sh` as needed to specify the minio endpoint/credentials
+  * Edit the `bom/bom-for-canned-pks*` file as needed to specify the  vmware and Pivnet credentials
+  * Start the download of relevant bits using the `tools/bom-downloader.sh` script. This would use the `bom/bom-for-canned-pks*` file as input and save it to a local folder.
+  * Start the upload of the saved bits into minio using the `tools/bom-uploader.sh` script.
+  * Now the bits are all saved in the Minio blobstore.
+* Now there is no more need for internet connection.
+* Next step is to edit the parameters for install/deploy of NSX-T and layered products.
+  * Edit the `params/user-inputs-for-canned-pks.yml` file .
+  * Then run the `tools/param-merger` to merge the pre-filled `params\nsx-t-for-canned-pks-params.yml` with the `params\user-inputs-for-canned-pks.yml` to get an effective param file for nsx-t install.
+  * Same way, generate the effective param file for PKS install.
+* Next is to register the pipeline and params against Concourse
+  * Install NSX-T
+  * Install PKS
+
+Check for more details on the following sections and also the [FAQ](docs/faqs.md) section.
+
 ## Kickoff OVA
 
 OVA image that contains the Concourse and minio pre-installed to run the offline installs.

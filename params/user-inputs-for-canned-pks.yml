@@ -100,8 +100,8 @@ resource_pool1: rp1
 resource_pool2: rp2
 resource_pool3: rp3
 
-# PKS Tile vcenter cluster
-pks_vcenter_cluster_list: Cluster1,Cluster2,Cluster3
+# PKS Tile vcenter cluster - would use compute_vcenter_cluster
+# pks_vcenter_cluster_list: Cluster1 #,Cluster2,Cluster3
 
 # PKS Controller user & password
 pks_api_admin_usr: pksadmin

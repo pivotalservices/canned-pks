@@ -98,10 +98,10 @@ nsx_password: ((nsx_t_manager_admin_pwd))                # password for nsx acce
 # Additional network for PKS Controller & Harbor
 pks_network_name: "PKS-Services"             # Logical switch for PKS-Services
 pks_vsphere_network: "PKS-Services"          # vCenter PKS-Services  network name for PKS - if empty quotes, then this network would be skipped
-pks_nw_cidr: 172.23.2.0/24          # PKS-Services network CIDR, ex: 10.0.0.0/22
-pks_excluded_range: 172.23.2.1      # PKS-Services network exclusion range
-pks_nw_dns: ((dnsserver))                # PKS-Services network DNS
-pks_nw_gateway: 172.23.2.1          # PKS-Services network Gateway
+pks_nw_cidr: 172.23.2.0/24                   # PKS-Services network CIDR, ex: 10.0.0.0/22
+pks_excluded_range: 172.23.2.1-172.23.2.9    # PKS-Services network exclusion range
+pks_nw_dns: ((dnsserver))                    # PKS-Services network DNS
+pks_nw_gateway: 172.23.2.1                   # PKS-Services network Gateway
 pks_nw_azs: az1,az2,az3                     # Comma separated list of AZ's to be associated with this network
 is_service_network: true  # Required select service network option in Ops man true or false
 
@@ -136,7 +136,7 @@ pks_tile_vcenter_host: ((vcenter_host))           # REQUIRED
 pks_tile_vcenter_usr: ((vcenter_usr))            # REQUIRED
 pks_tile_vcenter_pwd: ((vcenter_pwd))            # REQUIRED
 pks_tile_vcenter_data_center: ((vcenter_datacenter))    # REQUIRED
-pks_tile_vcenter_cluster: ((vcenter_cluster))        # REQUIRED
+pks_tile_vcenter_cluster: ((compute_vcenter_cluster))   # REQUIRED
 pks_tile_vcenter_datastore: ((vcenter_datastore))      # REQUIRED
 pks_tile_vm_folder: pks_vms              # REQUIRED
 
@@ -162,7 +162,7 @@ pks_tile_nsx_nat_mode: true                                            # Set to 
 pks_tile_external_ip_pool_name: snat-vip-pool-for-pks                  # EDIT - Name of External Floating IP Pool in NSX Mgr to be used for PKS
 pks_tile_container_ip_block_name: pod-container-ip-block-pks           # EDIT - Name of Container IP Block in NSX Mgr to be used for PKS
 pks_tile_nodes_ip_block_name: node-container-ip-block-pks              # EDIT - Name of Node IP Block in NSX Mgr to be used for PKS nodes in v1.1
-pks_tile_vcenter_cluster_list: ((pks_vcenter_cluster_list))                                 # EDIT - List of vcenter clusters for PKS to deploy k8s clusters
+pks_tile_vcenter_cluster_list: ((compute_vcenter_cluster))                                 # EDIT - List of vcenter clusters for PKS to deploy k8s clusters
 pks_tile_nodes_dns_list: ((dnsserver))                                       # EDIT - DNS server ip list for use by k8s nodes
 
 # Syslog Flags

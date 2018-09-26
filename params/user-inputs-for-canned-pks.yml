@@ -23,7 +23,7 @@ vcenter_usr: administrator@vsphere.local
 vcenter_pwd: vcenterAdminPassword
 vcenter_datacenter: Datacenter
 vcenter_datastore: a-xio
-nsx_t_vcenter_rp: ""
+nsx_t_vcenter_rp: ""                                  # Resource pool for nsx-t mgmt plane
 mgmt_portgroup: 'VM Network'
 ntpservers: 1.1.1.1
 dnsserver: 1.1.1.1
@@ -88,6 +88,8 @@ bosh_vm_storage: vsan
 
 # AZs and Clusters
 use_single_az: true      # Would use only az_1, ignore rest of the azs
+
+# Make sure az_1_cluster matches the compute cluster compute_vcenter_cluster if using single cluster
 az_1_cluster: Cluster1
 # Ignore the rest of the azs field if only using single az
 az_2_cluster: Cluster2

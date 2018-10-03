@@ -19,6 +19,8 @@ export MINIO_SECRET="<minio_secret_access_key>"
 export MINIO_BUCKET="canned-pks"
 
 # EDIT if necessary
+# Use the 2.2 if planning to install the NSX-T v2.2
+#export DEFAULT_BOM_FILE=bom-for-canned-nsx-t-pks-harbor-install-v2.2.yml
 export DEFAULT_BOM_FILE=bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml
 
 which docker

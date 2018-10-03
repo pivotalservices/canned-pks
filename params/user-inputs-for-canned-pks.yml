@@ -65,7 +65,7 @@ nsx_t_t0router_gateway: 10.1.1.1
 # First 20 IPs reserved for Ops Mgr, PKS controller, Harbor and others (even PAS GoRouters, SSH...)
 nsx_t_external_ip_pool_cidr: 10.100.5.0/24
 nsx_t_external_ip_pool_gateway: 10.100.5.1
-nsx_t_external_ip_pool_start: 10.100.5.21                  # Starting external ip -> Should not include gateway
+nsx_t_external_ip_pool_start: 10.100.5.31                  # Starting external ip -> Should not include gateway
 nsx_t_external_ip_pool_end: 10.100.5.200                   # Ending external ip -> Should not include gateway
 # Following ip address should be mapped to opsmgr.((dnsdomain))
 nsx_t_nat_rules_opsman_ip: 10.100.5.15                    # Ops mgr external ip -> should be within the external pool cidr range, but outside of the start and end range of external ip pool

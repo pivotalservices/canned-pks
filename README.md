@@ -5,7 +5,7 @@ The install is meant to be run in an offline mode by first creating an OVA that 
 <div><img src="images/canned-pks-workflow.png" width="500"/></div>
 
 ## Associated Repos
-* [Boostrap OVA]()
+* [Boostrap OVA](https://github.com/pivotalservices/canned-pks)
 * [NSX-T v2.1 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.1)
 * [NSX-T v2.1 Ansible scripts Repo](https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1)
 * [PKS v1.1.* Install pipeline Repo](https://github.com/sparameswaran/nsx-t-ci-pipeline/tree/nsxt-2.1)

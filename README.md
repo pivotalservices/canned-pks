@@ -17,7 +17,8 @@ The install takes an opinionated view, it only supports single compute cluster (
 
 ## High Level steps
 * Deploy the prebuilt OVA image containing Concourse and Minio on vCenter. The credentials to the concourse and minio are hardcoded into the built image.
-* Ensure the minio server is accessible from the VM.
+Or it can be BYO (build or bring your own) concourse and minio server instances.
+* Ensure the minio server is accessible from the jumpbox VM.
 * Use a Jumpbox or client machine (with internet access and connection to the Concourse VM) to run next set of steps with the canned-pks repo contents:
   * Edit the `tools/setup.sh` as needed to specify the minio endpoint/credentials as well as toggling the bom file name to preferred between version of NSX-T 2.1, 2.2 or 2.3.
   * Edit the `bom/bom-for-canned-pks*` file as needed to specify the vmware and Pivnet credentials
@@ -37,13 +38,13 @@ Check for more details on the following sections and also the [FAQ](docs/faqs.md
 
 ## Kickoff OVA
 
-OVA image that contains the Concourse and minio pre-installed to run the offline installs.
+OVA image that contains the Concourse and minio pre-installed to run the offline installs. Or if you have your own Concourse and Minio instances, use it.
 
 ## Bill of Materials (BOM)
 
 Installing the NSX-T or PKS requires access to couple of resources that are available in online mode and not in offline mode; these include github repos, docker images used by concourse tasks, Pivotal Tiles available from Pivnet, Stemcells, OVA images (either for Pivotal Ops Manager, or NSX-T, other file resources etc.). These dependent artifacts together form the Bill of Materials (BOM).
 
-The Bill of Materials need to be downloaded in online mode and then need to uploaded into S3 blobstore (minio) for the install pipelines of NSX-T and PKS to function in offline mode. BOM would include:
+The Bill of Materials need to be downloaded in online mode and then uploaded into S3 blobstore (minio) for the install pipelines of NSX-T and PKS to function in offline mode. BOM would include:
 
 * Github repo tarballs
 * Docker images used by pipelines

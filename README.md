@@ -8,12 +8,13 @@ The install is meant to be run in an offline mode by first creating an OVA that 
 * Boostrap OVA or an VM image that has concourse and minio running
 * [NSX-T v2.1 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.1)
 * [NSX-T v2.2 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.2)
-* [NSX-T Ansible scripts (handle both v2.1 and 2.2) Repo](https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1)
+* [NSX-T v2.3 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.3)
+* [NSX-T Ansible scripts (handle both v2.1, 2.2 and 2.3) Repo](https://github.com/sparameswaran/nsxt-ansible/tree/nsxt-2.1)
 * [PKS v1.* Install pipeline Repo](https://github.com/sparameswaran/nsx-t-ci-pipeline/tree/nsxt-2.1)
 * [BOM-Mgmt Repo](https://github.com/pivotalservices/bom-mgmt)
 
 ## High Level steps
-* Deploy the prebuilt OVA image containing Concourse and Minio on vcenter. The credentials to the concourse and minio are hardcoded into the built image.
+* Deploy the prebuilt OVA image containing Concourse and Minio on vCenter. The credentials to the concourse and minio are hardcoded into the built image.
 * Ensure the minio server is accessible from the VM.
 * Use a Jumpbox or client machine (with internet access and connection to the Concourse VM) to run next set of steps with the canned-pks repo contents:
   * Edit the `tools/setup.sh` as needed to specify the minio endpoint/credentials as well as toggling the bom file name to preferred version of NSX-T 2.1 or 2.2.
@@ -91,6 +92,7 @@ All the steps described below are handled automatically by the `bom-downloader.s
   gitRepo: https://github.com/sparameswaran/nsx-t-gen
 ```
 Change the branch to nsxt-2.2 for installing NSX-T v2.2
+Change the branch to nsxt-2.3 for installing NSX-T v2.3
 
 * For Docker image, use docker to download the bits from docker hub, run it and export the bits as a tarball. Then add the additional metadata.json file with content specified earlier and add it to the root of the tarball image. Save the final tarball into the offline bucket under resources/docker folder with same name as specified in bom file.
 ```
@@ -99,7 +101,7 @@ Change the branch to nsxt-2.2 for installing NSX-T v2.2
   resourceType: docker
   imageName: nsxedgegen/nsx-t-gen-worker
 ```
-Change the version to v2.2 for installing NSX-T v2.2
+Change the version to v2.2(3) for installing NSX-T v2.2(3)
 
 * For Pivnet tiles, create a tarball of the tile + stemcell specified (that matches the stemcell version specified in the tile metadata and iaas) and save it under the resources/pivnet-tile folder of the offline bucket.
 * For Pivnet non-Tiles (like Ops Mgr Ova), download the OVA version specified in the bom (and matching the IAAS) and save it under the resources/pivnet-non-tile folder of the offline bucket.
@@ -155,7 +157,7 @@ Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc
 * Downloading BOM bits
 
 Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
-Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools/setup.sh` and the tools is being run in an environment with online access. Please select the bom file to be used for installing v2.1 or 2.2 of NSX-T.
+Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools/setup.sh` and the tools is being run in an environment with online access. Please select the corresponding bom file version based version of NSX-T (v2.1, 2.2 or 2.3).
 
 Change to the `tools` folder. Edit the `setup.sh` script and then run the `bom-downloader.sh`. This would start the download of the various github, docker hub and pivotal resources declared in the bom file followed by downloading of my.vmware.com resources using a special docker image.
 
@@ -165,13 +167,16 @@ Upload the BOM bits into the minio s3 blobstore by change to the `tools` folder,
 
 ## Pipeline Templates
 
-The pipeline templates for installing the NSX-T v2.1 and PKS v1.1.1
+The pipeline templates for installing the NSX-T v2.x and PKS v1.1.1
 
 * [offline-nsx-t-install-pipeline for v2.1](./pipelines/offline-nsx-t-install-v2.1.yml)
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, ova, other binaries etc.) for install of NSX-T v2.1
 
 * [offline-nsx-t-install-pipeline for v2.2](./pipelines/offline-nsx-t-install-v2.2.yml)
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, ova, other binaries etc.) for install of NSX-T v2.2
+
+* [offline-nsx-t-install-pipeline for v2.3](./pipelines/offline-nsx-t-install-v2.3.yml)
+Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, ova, other binaries etc.) for install of NSX-T v2.3
 
 * [offline-install-pks-pipeline](./pipelines/offline-install-pks-pipeline.yml)
 Pipeline to run things in offline mode where all the dependent artifacts and resources are available on the S3 Blobstore (github repos, docker images, tiles, stemcells, ova, other binaries etc.) for install of PKS v1.x

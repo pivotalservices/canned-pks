@@ -1,0 +1,109 @@
+# Access tokens for Pivnet & my.vmware.com
+pivnet_token: EDIT_ME
+myvmware_user: EDIT_ME
+myvmware_password: EDIT_ME
+iaas: vsphere
+
+# All combined NSX-T and PKS/Harbor Install bits listed here
+bits:
+- name: nsx-t-gen-pipeline-tarball.tgz
+  contentType: application/gzip
+  resourceType: git
+  branch: nsxt-2.3
+  gitRepo: https://github.com/sparameswaran/nsx-t-gen
+- name: nsxt-ansible-tarball.tgz
+  contentType: application/gzip
+  resourceType: git
+  branch: nsxt-2.1
+  gitRepo: https://github.com/sparameswaran/nsxt-ansible
+- name: nsx-t-ci-pipeline-tarball.tgz
+  contentType: application/gzip
+  resourceType: git
+  branch: nsxt-2.1
+  gitRepo: https://github.com/sparameswaran/nsx-t-ci-pipeline
+# additional repos referred for concourse tasks
+- name: pcf-pipelines-tarball.tgz
+  contentType: application/gzip
+  resourceType: git
+  branch: master
+  gitRepo: https://github.com/pivotal-cf/pcf-pipelines
+- name: pcf-pipelines-utils-tarball.tgz
+  contentType: application/gzip
+  resourceType: git
+  branch: pks1.1
+  gitRepo: https://github.com/pivotalservices/concourse-pipeline-samples
+
+# Docker Image tarballs
+- name: nsxedgegen-nsx-t-gen-worker-v2.3-docker.tgz
+  contentType: application/gzip
+  resourceType: docker
+  tag: v2.3
+  imageName: nsxedgegen/nsx-t-gen-worker
+- name: pcfnorm-rootfs-1.0.17-docker.tgz
+  contentType: application/gzip
+  resourceType: docker
+  imageName: pcfnorm/rootfs
+  tag: 1.0.17
+- name: czero-cflinuxfs2-latest-docker.tgz
+  contentType: application/gzip
+  resourceType: docker
+  imageName: czero/cflinuxfs2
+- name: czero-rootfs-latest-docker.tgz
+  contentType: application/gzip
+  resourceType: docker
+  imageName: czero/rootfs
+- name: pivotalservices-pks-kubectl-latest-docker.tgz
+  contentType: application/gzip
+  resourceType: docker
+  imageName: pivotalservices/pks-kubectl
+
+
+# Pivnet Tiles and OVA
+# Supports PKS 1.1.x and 1.2
+- name: pivotal-container-service-1.2.tgz
+  contentType: application/gzip
+  productSlug: pivotal-container-service
+  version: 1.2.0
+  globs: ["*.pivotal"]
+  resourceType: pivnet-tile
+- name: harbor-container-registry-1.5.2.tgz
+  contentType: application/gzip
+  productSlug: harbor-container-registry
+  version: 1.5.2
+  globs: ["*.pivotal"]
+  resourceType: pivnet-tile
+- name: pcf-ops-manager-2.1.6.ova
+  contentType: application/vmware
+  productSlug: ops-manager
+  version: 2.1.6
+  globs: ["*vsphere*"]
+  resourceType: pivnet-non-tile
+
+# EDIT FOLLOWING SECTION To point to vmware NXS-T bits
+# Using a custom path to pick out things to be downloaded from my.vmware.com
+# Dont change the names or structure
+# The end file names and paths should match offline pipeline template
+# Example: like resources/file/nsx-mgr-ova-2-2.ova
+# If necessary, manually download NSX-T 2.2 bits from
+# https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-230&productId=673
+- name: nsx-mgr-ova-2-3.ova
+  contentType: application/vmware
+  resourceType: vmware
+  productFamily: vmware-nsx-t-data-center
+  productSlug: nsx-unified-appliance-2.3.0.0.0.10085405.ova
+- name: nsx-ctrl-ova-2-3.ova
+  contentType: application/vmware
+  resourceType: vmware
+  productFamily: vmware-nsx-t-data-center
+  productSlug: nsx-controller-2.3.0.0.0.10085396.ova
+- name: nsx-edge-ova-2-3.ova
+  contentType: application/vmware
+  resourceType: vmware
+  productFamily: vmware-nsx-t-data-center
+  productSlug: nsx-edge-2.3.0.0.0.10085448.ova
+  # If necessary, manually download from https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=OVFTOOL420#
+- name: ovftool-4.2.0-5965791-lin.x86_64.bundle
+  contentType: application/octet-stream
+  resourceType: vmware
+  productFamily: vmware-vsphere
+  productSlug: VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle

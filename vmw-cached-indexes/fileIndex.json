@@ -314,6 +314,81 @@
 			}
 		}
 	},
+  "NSX-T-230": {
+		"version": "2.3.0",
+		"productId": "673",
+		"productDate": "2018-09-18",
+		"productType": "Product Binaries",
+		"productName": "VMware NSX-T Data Center 2.3.0",
+		"files": {
+			"nsx-unified-appliance-2.3.0.0.0.10085405.ova": {
+				"name": "NSX Manager / NSX Cloud Service Manager / NSX policy Manager for VMware ESX",
+				"fileName": "nsx-unified-appliance-2.3.0.0.0.10085405.ova",
+				"fileDate": "2018-09-18",
+				"fileSize": "5.93 GB",
+				"fileType": "ova",
+				"buildNum": "10085361",
+				"descr": "This is the NSX Unified Appliance in Open Virtualization Appliance Format (OVA). This OVA can be used to deploy NSX Manager ",
+				"md5sum": "ee6318b2c0fede617786ebe0d6051406",
+				"sha1sum": "0a1724180d54b1a9563d6ed541bfcc8fcb1a43c2",
+				"sha256sum": "444346fdae57d202efb8359f2366400cf54f6d50d3c54a12183ed6c61f2bcda0",
+				"download": {
+					"downloadGroupCode": "NSX-T-230",
+					"downloadFileId": "ee6318b2c0fede617786ebe0d6051406",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "03a7c7b31e2e54ee3a61d38977c14898",
+					"tagId": "10029",
+					"productId": "673",
+					"uuId": "0ab8ff5a-3dbf-4b99-9f8f-6e3b9d6dea3e"
+				}
+			},
+			"nsx-controller-2.3.0.0.0.10085396.ova": {
+				"name": "NSX Controller for VMware ESXi",
+				"fileName": "nsx-controller-2.3.0.0.0.10085396.ova",
+				"fileDate": "2018-09-18",
+				"fileSize": "992.17 MB",
+				"fileType": "ova",
+				"buildNum": "10085361",
+				"descr": "This is the NSX Controller Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Controller on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+				"md5sum": "434d27e6175b5f1d27ea8ee52b7521bf",
+				"sha1sum": "9d520d0cf90ee85bf4f2e9eefbcb3ddf9748ae09",
+				"sha256sum": "1696078e00eca6a29fd3fc13cbbdf9dc607d0866b3949d2b054d4c859e1139e2",
+				"download": {
+					"downloadGroupCode": "NSX-T-230",
+					"downloadFileId": "434d27e6175b5f1d27ea8ee52b7521bf",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "05d72e4f2cfbe6af1a6b9d3dbd017c6b",
+					"tagId": "10029",
+					"productId": "673",
+					"uuId": "5120edf5-5e11-476e-ab17-780de71d80bf"
+				}
+			},
+			"nsx-edge-2.3.0.0.0.10085448.ova": {
+				"name": "NSX Edge for VMware ESXi",
+				"fileName": "nsx-edge-2.3.0.0.0.10085448.ova",
+				"fileDate": "2018-09-18",
+				"fileSize": "546.56 MB",
+				"fileType": "ova",
+				"buildNum": "10085361",
+				"descr": "This is the NSX Edge Appliance in Open Virtualization Appliance Format (OVA). Download the NSX Edge on a computer and use the VMware OVF Tool or vSphere GUI Client to deploy to an ESXi host. ",
+				"md5sum": "cfb279bd3091065ddf697ee0cd9e9c20",
+				"sha1sum": "1b2df5fa5b9a3cdeac8882c004badfd88b0b3a83",
+				"sha256sum": "c5907c408ab121802c7cc69d339862d3142dd38f03c2bc119e5583a612edf792",
+				"download": {
+					"downloadGroupCode": "NSX-T-230",
+					"downloadFileId": "cfb279bd3091065ddf697ee0cd9e9c20",
+					"vmware": "downloadBinary",
+					"baseStr": "",
+					"hashKey": "21feacb7d147933f14322afdba1ae795",
+					"tagId": "10029",
+					"productId": "673",
+					"uuId": "82a6012d-ca92-4660-8f8f-fa7558b771f0"
+				}
+			}
+		}
+	},
   "NSX-T-220": {
     "version": "2.2.0",
     "productId": "673",
@@ -343,28 +418,6 @@
           "uuId": "fd17c0e7-7977-4a74-9d8d-29e6205db562"
         }
       },
-      "nsx-unified-appliance-2.2.0.0.0.8680778.qcow2": {
-        "name": "NSX Manager for KVM Hypervisors",
-        "fileName": "nsx-unified-appliance-2.2.0.0.0.8680778.qcow2",
-        "fileDate": "2018-06-05",
-        "fileSize": "3.49 GB",
-        "fileType": "qcow2",
-        "buildNum": "8680772",
-        "descr": "This is the NSX Manager Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Manager on a computer and use KVM tools to deploy to a KVM hypervisor. ",
-        "md5sum": "09d33ffaf3b5a691acb16d21313ab998",
-        "sha1sum": "4262c848d070e1c3450db35d5efe8a3089583c55",
-        "sha256sum": "68520635b6e4f45601e4cfc7a821892fa588b95624cd19b19c3e3d99c462a0ec",
-        "download": {
-          "downloadGroupCode": "NSX-T-220",
-          "downloadFileId": "09d33ffaf3b5a691acb16d21313ab998",
-          "vmware": "downloadBinary",
-          "baseStr": "",
-          "hashKey": "0df10a7e3177053ad55e5c88b4f97850",
-          "tagId": "9769",
-          "productId": "673",
-          "uuId": "05ba802f-d5cd-4bb5-b4c1-6059ea2468c1"
-        }
-      },
       "nsx-controller-2.2.0.0.0.8680774.ova": {
         "name": "NSX Controller for VMware ESXi",
         "fileName": "nsx-controller-2.2.0.0.0.8680774.ova",
@@ -387,28 +440,6 @@
           "uuId": "cb5fb25f-1a2e-469a-a81a-0b88476c1986"
         }
       },
-      "nsx-controller-2.2.0.0.0.8680774.qcow2": {
-        "name": "NSX Controller for KVM Hypervisors",
-        "fileName": "nsx-controller-2.2.0.0.0.8680774.qcow2",
-        "fileDate": "2018-06-05",
-        "fileSize": "902.37 MB",
-        "fileType": "qcow2",
-        "buildNum": "8680772",
-        "descr": "This is the NSX Controller Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Controller on a computer and use KVM tools to deploy to a KVM hypervisor. ",
-        "md5sum": "2e4158f15a59f04abc6d06ff57ff9afc",
-        "sha1sum": "33e991c6e74a61c7520b78e51a2e8fe4e063d6da",
-        "sha256sum": "af3a2c8e8194415777b6e41fc021b758da198418e132a107ac5b0670e7ed379d",
-        "download": {
-          "downloadGroupCode": "NSX-T-220",
-          "downloadFileId": "2e4158f15a59f04abc6d06ff57ff9afc",
-          "vmware": "downloadBinary",
-          "baseStr": "",
-          "hashKey": "6fd938bbdf1bda8b04b3fcb54a437d25",
-          "tagId": "9769",
-          "productId": "673",
-          "uuId": "00f8e593-0112-4f57-866f-e8ef4ec2eef7"
-        }
-      },
       "nsx-edge-2.2.0.0.0.8680783.ova": {
         "name": "NSX Edge for VMware ESXi",
         "fileName": "nsx-edge-2.2.0.0.0.8680783.ova",
@@ -429,50 +460,6 @@
           "tagId": "9769",
           "productId": "673",
           "uuId": "1a68afcd-02fc-4a9c-bc0e-08784fdb9a2f"
-        }
-      },
-      "nsx-edge-2.2.0.0.0.8680783.iso": {
-        "name": "NSX Edge for Bare Metal",
-        "fileName": "nsx-edge-2.2.0.0.0.8680783.iso",
-        "fileDate": "2018-06-05",
-        "fileSize": "706 MB",
-        "fileType": "iso",
-        "buildNum": "8680772",
-        "descr": "This is the NSX Edge Appliance in ISO format. Download the ISO and use the appropriate installation process to install the NSX Edge onto bare metal hardware. This may be manual installation via CDROM or Flash based drive or automated using a PXE based system or similar automated deployment model. ",
-        "md5sum": "2e9fe505aca42a67f30adc824ad80f80",
-        "sha1sum": "cfdbe7391c6b5d6d7457305d658f6dc0aaddf315",
-        "sha256sum": "18270da031d92ee85dfffe4d31559532a168341864cf705af1a1c30dc7fa4d19",
-        "download": {
-          "downloadGroupCode": "NSX-T-220",
-          "downloadFileId": "2e9fe505aca42a67f30adc824ad80f80",
-          "vmware": "downloadBinary",
-          "baseStr": "",
-          "hashKey": "9f47a8062ea5720d38ccf427d7e4f94a",
-          "tagId": "9769",
-          "productId": "673",
-          "uuId": "9e6b0de9-0243-49f3-bbbb-58796961f10e"
-        }
-      },
-      "VMware-NSX-upgrade-bundle-2.2.0.0.0.8680778.mub": {
-        "name": "Master Upgrade Bundle",
-        "fileName": "VMware-NSX-upgrade-bundle-2.2.0.0.0.8680778.mub",
-        "fileDate": "2018-06-05",
-        "fileSize": "4.62 GB",
-        "fileType": "mub",
-        "buildNum": "8680772",
-        "descr": "File required for upgrade from NSX-T 2.0.0 -&gt; NSX-T 2.1.0. ",
-        "md5sum": "a380644cfa30420bff60c6be3aa5bf7f",
-        "sha1sum": "ac0a0f3321b26400ccfc7d541ea1e12296967e38",
-        "sha256sum": "aaf091f1f56b246c448c302e6c3a3f4e9e4a888ed8fed88ac41ab8014e5ad703",
-        "download": {
-          "downloadGroupCode": "NSX-T-220",
-          "downloadFileId": "a380644cfa30420bff60c6be3aa5bf7f",
-          "vmware": "downloadBinary",
-          "baseStr": "",
-          "hashKey": "215c05d8092bc9a7f13b8457b2ea9fe1",
-          "tagId": "9769",
-          "productId": "673",
-          "uuId": "5801ba7f-8ea6-4336-87bd-0b322ce96ec9"
         }
       }
     }
@@ -506,28 +493,6 @@
 					"uuId": "e268e430-59fd-45f2-a7c4-08629fe084ef"
 				}
 			},
-			"nsx-unified-appliance-2.1.0.0.0.7395503.qcow2": {
-				"name": "NSX Manager for KVM Hypervisors",
-				"fileName": "nsx-unified-appliance-2.1.0.0.0.7395503.qcow2",
-				"fileDate": "2017-12-21",
-				"fileSize": "2.99 GB",
-				"fileType": "qcow2",
-				"buildNum": "7395507",
-				"descr": "This is the NSX Manager Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Manager on a computer and use KVM tools to deploy to a KVM hypervisor. ",
-				"md5sum": "e10d2b1cf4d513bfb0c3287bbaf4b682",
-				"sha1sum": "55f7a5b91c9e6c7c5d1132484a995a152a02d616",
-				"sha256sum": "cddd059e961851378c5c74ea0f6b99420da7c92a3a16523591841a6742241db7",
-				"download": {
-					"downloadGroupCode": "NSX-T-210",
-					"downloadFileId": "e10d2b1cf4d513bfb0c3287bbaf4b682",
-					"vmware": "downloadBinary",
-					"baseStr": "",
-					"hashKey": "8b0da2eb619abc6c02c9d1be5c570a80",
-					"tagId": "9305",
-					"productId": "721",
-					"uuId": "183f4bed-4cb7-4b84-ab3f-bfe710261cdb"
-				}
-			},
 			"nsx-controller-2.1.0.0.0.7395493.ova": {
 				"name": "NSX Controller for VMware ESXi",
 				"fileName": "nsx-controller-2.1.0.0.0.7395493.ova",
@@ -550,28 +515,6 @@
 					"uuId": "e7c7f09a-3567-4aa4-9c80-d30bdae030fe"
 				}
 			},
-			"nsx-controller-2.1.0.0.0.7395493.qcow2": {
-				"name": "NSX Controller for KVM Hypervisors",
-				"fileName": "nsx-controller-2.1.0.0.0.7395493.qcow2",
-				"fileDate": "2017-12-21",
-				"fileSize": "1.88 GB",
-				"fileType": "qcow2",
-				"buildNum": "7395507",
-				"descr": "This is the NSX Controller Appliance in QEMU Copy on Write version 2 (QCOW2) format. Download the NSX Controller on a computer and use KVM tools to deploy to a KVM hypervisor. ",
-				"md5sum": "2d955cefaf8bedbacab45bd54d85efa4",
-				"sha1sum": "30b7d020b7f7d2646c550cedf9b9009fe5da88eb",
-				"sha256sum": "e4136e85105765fea4cde3f857b0af29c9df02b8113c03fea020fbdd0e8979a0",
-				"download": {
-					"downloadGroupCode": "NSX-T-210",
-					"downloadFileId": "2d955cefaf8bedbacab45bd54d85efa4",
-					"vmware": "downloadBinary",
-					"baseStr": "",
-					"hashKey": "28fa03c0d203783df51511b564d19e7e",
-					"tagId": "9305",
-					"productId": "721",
-					"uuId": "a167ce93-2699-4dcc-91bf-99c064d21a13"
-				}
-			},
 			"nsx-edge-2.1.0.0.0.7395502.ova": {
 				"name": "NSX Edge for VMware ESXi",
 				"fileName": "nsx-edge-2.1.0.0.0.7395502.ova",
@@ -592,94 +535,6 @@
 					"tagId": "9305",
 					"productId": "721",
 					"uuId": "dd993136-275e-43b6-83e7-6ba10fec89ac"
-				}
-			},
-			"nsx-edge-2.1.0.0.0.7395502.iso": {
-				"name": "NSX Edge for Bare Metal",
-				"fileName": "nsx-edge-2.1.0.0.0.7395502.iso",
-				"fileDate": "2017-12-21",
-				"fileSize": "548.00 MB",
-				"fileType": "iso",
-				"buildNum": "7395507",
-				"descr": "This is the NSX Edge Appliance in ISO format. Download the ISO and use the appropriate installation process to install the NSX Edge onto bare metal hardware. This may be manual installation via CDROM or Flash based drive or automated using a PXE based system or similar automated deployment model. ",
-				"md5sum": "3efa2108392eeb2a65706b4e8356afe5",
-				"sha1sum": "706800aac272e0a43f79d251b68a9ccbaccc2f9b",
-				"sha256sum": "88b9b318c859a85ace62816baa0e78923ac0fb9fdf9f256643b74ad58d5fbcfe",
-				"download": {
-					"downloadGroupCode": "NSX-T-210",
-					"downloadFileId": "3efa2108392eeb2a65706b4e8356afe5",
-					"vmware": "downloadBinary",
-					"baseStr": "",
-					"hashKey": "bac6a7e7ad610bc7e5ad22180df9622e",
-					"tagId": "9305",
-					"productId": "721",
-					"uuId": "4e9647fc-48ae-46dd-a705-72c7845b3e68"
-				}
-			},
-			"nsx-keymanager-2.1.0.0.0.7395504.ova": {
-				"name": "NSX Key Manager for VMware ESXi",
-				"fileName": "nsx-keymanager-2.1.0.0.0.7395504.ova",
-				"fileDate": "2017-12-21",
-				"fileSize": "401.54 MB",
-				"fileType": "ova",
-				"buildNum": "7395507",
-				"descr": "This is the NSX Key Manager Appliance in Open Virtualization Appliance Format (OVA). It is responsible for generating and storing the root keys for each DNE rule. It handles key rotation and revocation and pushes the appropriate keys down to the hosts that require them. Download the NSX Key Manager appliance on a computer and use the VMware OVF Tool or vSphere GUI client to deploy to an ESXi host. ",
-				"md5sum": "16fc7307513c3011d485dff4c2e7da23",
-				"sha1sum": "655a606ba7c561058b7d238453efe9062a5e1a9c",
-				"sha256sum": "3a07a6dcd4b88c1bfafaf76b86b56225cfcba5e4e2610493322162ca57f52ae8",
-				"download": {
-					"downloadGroupCode": "NSX-T-210",
-					"downloadFileId": "16fc7307513c3011d485dff4c2e7da23",
-					"vmware": "downloadBinary",
-					"baseStr": "",
-					"hashKey": "5c6add4f17211c692a411590ac50b94f",
-					"tagId": "9305",
-					"productId": "721",
-					"uuId": "9da402c5-fb1b-4367-8b85-6bac6bfade2c"
-				}
-			},
-			"VMware-NSX-upgrade-bundle-2.1.0.0.0.7395503.mub": {
-				"name": "Master Upgrade Bundle",
-				"fileName": "VMware-NSX-upgrade-bundle-2.1.0.0.0.7395503.mub",
-				"fileDate": "2017-12-21",
-				"fileSize": "2.88 GB",
-				"fileType": "mub",
-				"buildNum": "7395507",
-				"descr": "File required for upgrade from NSX-T 2.0.0 -&gt; NSX-T 2.1.0. ",
-				"md5sum": "9802743f9394af30db536e2db2758cde",
-				"sha1sum": "8aaf3201b894eaefb4b20530fe32d2b431daf14e",
-				"sha256sum": "d39747f40455db8e7f6a5a03bfa8e2ac43bff1bbe18cefe9d4f8918c81fddf3f",
-				"download": {
-					"downloadGroupCode": "NSX-T-210",
-					"downloadFileId": "9802743f9394af30db536e2db2758cde",
-					"vmware": "downloadBinary",
-					"baseStr": "",
-					"hashKey": "54d8e6fde67225090dd0daa49baaf314",
-					"tagId": "9305",
-					"productId": "721",
-					"uuId": "5dd11a79-02f8-48e8-8975-95264ffaff75"
-				}
-			},
-			"nsx-container-2.1.0.0.0.7371408.zip": {
-				"name": "NSX Container",
-				"fileName": "nsx-container-2.1.0.0.0.7371408.zip",
-				"fileDate": "2017-12-21",
-				"fileSize": "569.73 MB",
-				"fileType": "zip",
-				"buildNum": "7371408",
-				"descr": "This package includes the required modules to integrate NSX-T with Kubernetes, Pivotal Application Service (PAS), Redhat OpenShift based on CNI integration. This package includes the NSX Container Plugin, NSX Node Agent, OVS and Pivotal Operations Manager tile bits Please refer to the &quot;Drivers and Tools&quot; NSX Container Plugin tab for the latest patch update. ",
-				"md5sum": "5b5d174a0270dee2b347984253f549cd",
-				"sha1sum": "c6685a7a958b03e9affdb9174fa8d9bbfd34c1a3",
-				"sha256sum": "20c733909ea5f6edaba3f03a8cafe46b8577469166a28d92b32319f390adc68a",
-				"download": {
-					"downloadGroupCode": "NSX-T-210",
-					"downloadFileId": "5b5d174a0270dee2b347984253f549cd",
-					"vmware": "downloadBinary",
-					"baseStr": "",
-					"hashKey": "0827efca6d38f58d86545dc2f22dae67",
-					"tagId": "9305",
-					"productId": "721",
-					"uuId": "5aa888f7-c2ff-44eb-9413-158a62aafa7c"
 				}
 			}
 		}

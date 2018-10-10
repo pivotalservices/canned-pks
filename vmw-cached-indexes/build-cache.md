@@ -1,7 +1,7 @@
 # Rebuilding the VMware Product Index Cached Templates
 bom-mgmt tool uses  [apnex/vmw-cli](https://github.com/apnex/vmw-cli) tool to build indexes for a set of pre-specified VMware products and then downloads the bits as requested.
 
-A set of cached indexes have been already saved, curated and templated for only downloading NSX-T binary install bits for versions 2.1, 2.2 and Ovftool v4.2+.
+A set of cached indexes have been already saved, curated and templated for only downloading NSX-T binary install bits for versions 2.1, 2.2, 2.3 and Ovftool v4.2+.
 
 These indexed files would be copied over when bom-downloader script is ran, to save time in looking up the right product families and download things faster.
 

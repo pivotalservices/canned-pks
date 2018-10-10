@@ -10,36 +10,40 @@
     }
   },
   "vmware-pivotal-container-service": {
-		"1.1": {
-			"NSX-T-210": "768",
-			"NSX-T-PKS-214": "768",
-			"NSX-T-PKS-213": "768",
-			"NSX-T-PKS-212": "768",
-			"NSX-T-PKS-2101": "768",
-			"NSX-T-PKS-214-OSS": "768",
-			"NSX-T-210-OSS": "768"
-		},
-		"1.0": {
-			"NSX-T-210": "721",
-			"NSX-T-PKS-214": "721",
-			"NSX-T-PKS-213": "721",
-			"NSX-T-PKS-212": "721",
-			"NSX-T-PKS-2101": "721",
-			"NSX-T-PKS-214-OSS": "721",
-			"NSX-T-210-OSS": "721"
-		}
-	},
+  "1.1": {
+    "NSX-T-210": "768",
+    "NSX-T-PKS-214": "768",
+    "NSX-T-PKS-213": "768",
+    "NSX-T-PKS-212": "768",
+    "NSX-T-PKS-2101": "768",
+    "NSX-T-PKS-214-OSS": "768",
+    "NSX-T-210-OSS": "768"
+  },
+  "1.0": {
+    "NSX-T-210": "721",
+    "NSX-T-PKS-214": "721",
+    "NSX-T-PKS-213": "721",
+    "NSX-T-PKS-212": "721",
+    "NSX-T-PKS-2101": "721",
+    "NSX-T-PKS-214-OSS": "721",
+    "NSX-T-210-OSS": "721"
+    }
+  },
   "vmware-nsx-t-data-center": {
     "2.x": {
       "NSX-T-220": "673",
+      "NSX-T-230": "673",
       "VRLI-461-NSX": "673",
       "VRNI-380": "673",
+      "NSX-T-PKS-230": "673",
       "NSX-T-PKS-221": "673",
       "NSX-T-PKS-220": "673",
       "NSX-T-PKS-214": "673",
       "NSX-T-PKS-213": "673",
       "NSX-T-PKS-212": "673",
       "NSX-T-PKS-2101": "673",
+      "NSX-T-230-OSS": "673",
+      "NSX-T-PKS-230-OSS": "673",
       "NSX-T-PKS-221-OSS": "673",
       "NSX-T-PKS-220-OSS": "673",
       "NSX-T-220-OSS": "673",

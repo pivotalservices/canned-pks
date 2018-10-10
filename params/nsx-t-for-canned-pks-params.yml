@@ -243,10 +243,10 @@ nsx_t_container_ip_block_spec: |
   container_ip_blocks:
     # For PKS clusters
   - name: node-container-ip-block-pks
-    cidr: 172.24.0.0/16
+    cidr: 172.24.0.0/14
     # No tags for this block
   - name: pod-container-ip-block-pks
-    cidr: 172.28.0.0/16
+    cidr: 172.28.0.0/14
     tags:
       ncp/shared_resource: 'true'
 

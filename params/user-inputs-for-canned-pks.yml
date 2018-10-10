@@ -32,7 +32,10 @@ defaultgateway: 1.1.1.1
 netmask: 255.255.255.0
 esxi_hosts_root_pwd: esxiRootPassword                 # Esxi Host `root` Password
 nsx_t_mgmt_vcenter_cluster: MgmtCluster               # vCenter Mgmt Cluster for hosting only the NSX-T Management Plane
+# Only one compute vcenter cluster is supported for canned-pks (Where K8S Cluster Nodes will run).
+# This cluster can be different from or same as mgmt cluster.
 compute_vcenter_cluster: Cluster1                     # vCenter Compute Cluster to be used for running the managed VMs, including K8s - can be same as the mgmt_cluster
+
 
 # NSX-T config
 nsx_t_esxi_vmnics: vmnic4   # Esxi Host unused vmnic to be used for nsx
@@ -103,7 +106,7 @@ resource_pool2: rp2
 resource_pool3: rp3
 
 # PKS Tile vcenter cluster - would use compute_vcenter_cluster
-# pks_vcenter_cluster_list: Cluster1 #,Cluster2,Cluster3
+# pks_vcenter_cluster_list: Cluster1 # Only one compute vcenter cluster supported 
 
 # PKS Controller user & password
 pks_api_admin_usr: pksadmin

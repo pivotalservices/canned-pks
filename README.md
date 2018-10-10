@@ -4,6 +4,8 @@ Complete automated install of NSX-T and PKS in a can.
 The install is meant to be run in an offline mode by first creating an OVA that can be used to run [Concourse](https://concourse-ci.org) and [Minio](https://github.com/minio/) while all the necessary bits that are required (either by the pipeline or the install) gets persisted into a S3 Blobstore (minio) and then used by the pipeline during the install to complete NSX-T and PKS deployments.
 <div><img src="images/canned-pks-workflow.png" width="500"/></div>
 
+The install takes an opinionated view, it only supports single compute cluster (hosts from that cluster would be used to run/manage the PKS VMs and clusters), not multiple compute clusters. This compute cluster can be same or different from the NSX-T management plane cluster.
+
 ## Associated Repos
 * Boostrap OVA or an VM image that has concourse and minio running
 * [NSX-T v2.1 Install pipeline Repo](https://github.com/sparameswaran/nsx-t-gen/tree/nsxt-2.1)
@@ -17,7 +19,7 @@ The install is meant to be run in an offline mode by first creating an OVA that 
 * Deploy the prebuilt OVA image containing Concourse and Minio on vCenter. The credentials to the concourse and minio are hardcoded into the built image.
 * Ensure the minio server is accessible from the VM.
 * Use a Jumpbox or client machine (with internet access and connection to the Concourse VM) to run next set of steps with the canned-pks repo contents:
-  * Edit the `tools/setup.sh` as needed to specify the minio endpoint/credentials as well as toggling the bom file name to preferred version of NSX-T 2.1 or 2.2.
+  * Edit the `tools/setup.sh` as needed to specify the minio endpoint/credentials as well as toggling the bom file name to preferred between version of NSX-T 2.1, 2.2 or 2.3.
   * Edit the `bom/bom-for-canned-pks*` file as needed to specify the vmware and Pivnet credentials
   * Start the download of relevant bits using the `tools/bom-downloader.sh` script. This would use the `bom/bom-for-canned-pks*` file as input and save it to a local folder.
   * Start the upload of the saved bits into minio using the `tools/bom-uploader.sh` script.
@@ -59,7 +61,7 @@ The bom file (under bom folder) specifies the Bill of Materials required for exe
 Also, the tokens required to interact with my.vmware.com or network.pivotal (pivnet) to download bits are specified in the bom file.
 
 The `tools/setup.sh` contains the creds to connect to the Minio S3 Blobstore and also the bucket to be used to store the offline resources. Based on the resource type specified in BOM file, the resource would be saved and uploaded into the specific paths in the offline bucket by the `bom-mgmt` tool.
-It also specifies the bom file to use. Select a different version of the bom file if interested in NSX-T v2.2.
+It also specifies the bom file to use. Select a different version of the bom file if interested in NSX-T v2.2 or 2.3.
 
 
 | Resource Type |resourceType value | Additional fields | Content Type | Path saved under Blobstore | Notes |
@@ -78,7 +80,7 @@ It also specifies the bom file to use. Select a different version of the bom fil
 [2]: To manually download vmware bits (requires login)
 [NSX-T 2.1 bits](https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-210&productId=673)
 [NSX-T 2.2 bits](https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-220&productId=673)
-
+[NSX-T 2.3 bits](https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-230&productId=673)
 [OVFTool 4.2 bits](https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=OVFTOOL420#)
 
 ### Sample Step for a given entry in bom file:
@@ -156,8 +158,9 @@ Note: A [script](./tools/download-tools.sh) is provided to download bom-mgmt, mc
 
 * Downloading BOM bits
 
-Verify the contents of [bom file](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
-Also, ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools/setup.sh` and the tools is being run in an environment with online access. Please select the corresponding bom file version based version of NSX-T (v2.1, 2.2 or 2.3).
+Ensure the pre-reqs specified (installing docker, minio client and bom-mgmt tool) have been satisfied by running the `tools/setup.sh` and the tools is being run in an environment with online access. Please select the corresponding bom file version based version of NSX-T (v2.1, 2.2 or 2.3).
+
+The bom file is specified/referred in the `tools/setup.sh` file. Check the correct matching version of the bom file based on version of NSX-T install desired. Then verify the contents of [bom for v2.1](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.1.yml) or [bom for v2.2](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.2.yml) or [bom for v2.3](./bom/bom-for-canned-nsx-t-pks-harbor-install-v2.3.yml) are valid (like pointing to correct repos, docker images, pivnet or vmware tokens etc.) before starting the download.
 
 Change to the `tools` folder. Edit the `setup.sh` script and then run the `bom-downloader.sh`. This would start the download of the various github, docker hub and pivotal resources declared in the bom file followed by downloading of my.vmware.com resources using a special docker image.
 

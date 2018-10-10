@@ -83,8 +83,8 @@ bits:
 # Using a custom path to pick out things to be downloaded from my.vmware.com
 # Dont change the names or structure
 # The end file names and paths should match offline pipeline template
-# Example: like resources/file/nsx-mgr-ova-2-2.ova
-# If necessary, manually download NSX-T 2.2 bits from
+# Example: like resources/file/nsx-mgr-ova-2-3.ova
+# If necessary, manually download NSX-T 2.3 bits from
 # https://my.vmware.com/group/vmware/details?downloadGroup=NSX-T-230&productId=673
 - name: nsx-mgr-ova-2-3.ova
   contentType: application/vmware

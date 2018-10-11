@@ -57,9 +57,9 @@ nsx_t_uplink_profile_vlan: 0                           # VLAN ID of the external
 
 # NSX T0 Router Details
 nsx_t_t0router_ips_cidr: '24'
-nsx_t_t0router_vip: 10.1.1.4/24
-nsx_t_t0router_ip_edge1: 10.1.1.2/24
-nsx_t_t0router_ip_edge2: 10.1.1.3/24
+nsx_t_t0router_vip: 10.1.1.4/29                         # T0 router vip - make sure this range does not intrude with the external vip ranges
+nsx_t_t0router_ip_edge1: 10.1.1.2/29                    # T0 router uplink ports - make sure this range does not intrude with the external vip ranges
+nsx_t_t0router_ip_edge2: 10.1.1.3/29                    # T0 router uplink ports - make sure this range does not intrude with the external vip ranges
 nsx_t_t0router_gateway: 10.1.1.1
 
 # External IP Pool
@@ -68,8 +68,8 @@ nsx_t_t0router_gateway: 10.1.1.1
 # First 20 IPs reserved for Ops Mgr, PKS controller, Harbor and others (even PAS GoRouters, SSH...)
 nsx_t_external_ip_pool_cidr: 10.100.5.0/24
 nsx_t_external_ip_pool_gateway: 10.100.5.1
-nsx_t_external_ip_pool_start: 10.100.5.31                  # Starting external ip -> Should not include gateway
-nsx_t_external_ip_pool_end: 10.100.5.200                   # Ending external ip -> Should not include gateway
+nsx_t_external_ip_pool_start: 10.100.5.31                  # Starting external ip -> Should not include gateway, not overlap with the T0 router uplink ips
+nsx_t_external_ip_pool_end: 10.100.5.200                   # Ending external ip -> Should not include gateway, not overlap with the T0 router uplink ips
 # Following ip address should be mapped to opsmgr.((dnsdomain))
 nsx_t_nat_rules_opsman_ip: 10.100.5.15                    # Ops mgr external ip -> should be within the external pool cidr range, but outside of the start and end range of external ip pool
 nsx_t_nat_rules_snat_translated_ip_for_all: 10.100.5.10   # Should be within the cidr range, but outside of the start and end range of external ip pool
@@ -106,7 +106,7 @@ resource_pool2: rp2
 resource_pool3: rp3
 
 # PKS Tile vcenter cluster - would use compute_vcenter_cluster
-# pks_vcenter_cluster_list: Cluster1 # Only one compute vcenter cluster supported 
+# pks_vcenter_cluster_list: Cluster1 # Only one compute vcenter cluster supported
 
 # PKS Controller user & password
 pks_api_admin_usr: pksadmin

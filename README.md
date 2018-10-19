@@ -1,7 +1,7 @@
 # canned-pks
 Complete automated install of NSX-T and PKS in a can.
 
-# DISCLAIMER
+# DEPRECATED
 
 This pipeline is not supported or maintained going forward as of Oct 17th, 2018. All development work has now stopped.
 

@@ -1,6 +1,13 @@
 # canned-pks
 Complete automated install of NSX-T and PKS in a can.
 
+# DISCLAIMER
+
+This pipeline is not supported or maintained going forward as of Oct 17th, 2018. All development work has now stopped.
+
+Kindly use the official [Pivotal PCF Pipelines](https://github.com/pivotal-cf/pcf-pipelines) and the [PCF Automation toolkit] (https://network.pivotal.io/products/pcf-automation) for official install pipelines/toolkits. 
+
+# Details
 The install is meant to be run in an offline mode by first creating an OVA that can be used to run [Concourse](https://concourse-ci.org) and [Minio](https://github.com/minio/) while all the necessary bits that are required (either by the pipeline or the install) gets persisted into a S3 Blobstore (minio) and then used by the pipeline during the install to complete NSX-T and PKS deployments.
 <div><img src="images/canned-pks-workflow.png" width="500"/></div>
 
